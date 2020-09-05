@@ -22,6 +22,10 @@ class _StatefulGroupPageState extends State<StatefulGroupPage> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('StatefulWidget与基础组件'),
+          leading: GestureDetector(
+            onTap: ()=> Navigator.pop(context),
+            child: Icon(Icons.arrow_back),
+          ),
         ),
         //底部导航栏
         bottomNavigationBar: BottomNavigationBar(
