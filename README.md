@@ -41,3 +41,37 @@ flutter-basic创建于2020/08/23
    + 6.TextField
    + 7.PageView
    + 8.Image
+   
+### 布局组件
+
+> 
+   + 1.Column
+   + 2.Row
+   + 3.ClipOval、ClipRect(裁剪)
+   + 4.FractionallySizedBox
+   + 5.Stack
+   + 6.Wrap
+   + 7.Expanded
+   
+   
+### 手势
+
+
+>
+   + 1.GestureDetector
+   
+   
+### 问题
+
+
+>
+     Starting a Gradle Daemon, 5 busy and 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+     
+   
+   [解决](https://segmentfault.com/a/1190000022604574?utm_source=tag-newest)
+   `cordova clean`
+   
+
+### google 字体库
+
+[地址](http://www.googlefonts.net/)

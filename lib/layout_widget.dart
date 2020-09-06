@@ -41,7 +41,7 @@ class _LayoutWidgetState extends State<LayoutWidget> {
 //              children: <Widget>[
 //                Text('垂直布局'),
 //                Text('垂直布局'),
-//                Row(
+//                Column(
 //                  children: <Widget>[
 //                    Text('水平布局'),
 //                    Text('水平布局'),
