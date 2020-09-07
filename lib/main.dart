@@ -7,6 +7,8 @@ import 'package:flutter_basic/less_group_page.dart';
 import 'package:flutter_basic/photo_app.dart';
 import 'package:flutter_basic/resouces_page.dart';
 import 'package:flutter_basic/stateful_group_page.dart';
+import 'package:flutter_basic/water_mark.dart';
+import 'package:flutter_basic/widgets/list_tile_widget.dart';
 
 import 'layout_widget.dart';
 
@@ -64,6 +66,8 @@ class _MyAppState extends State<MyApp> {
         'life':(BuildContext context) => FlutterWidgetLifeCycle(),
         'app_life':(BuildContext context) => AppLifecycle(),
         'photo':(BuildContext context) => PhotoApp(),
+        'water_mark':(BuildContext context) => WaterMark(),
+        'list_tile_widget':(BuildContext context) => ListTileWidget(),
       },
     );
   }
@@ -97,7 +101,9 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('如何打开第三方软件', LaunchPage(), 'launch'),
           _item('Flutter 页面生命周期', FlutterWidgetLifeCycle(), 'life'),
           _item('App生命周期', AppLifecycle(), 'app_life'),
-          _item('拍照App', PhotoApp(), 'photo')
+          _item('拍照App', PhotoApp(), 'photo'),
+          _item('Flutter 页面水印', WaterMark(), 'water_mark'),
+          _item('ListTile', ListTileWidget(), 'list_tile_widget'),
         ],
       ),
     );
