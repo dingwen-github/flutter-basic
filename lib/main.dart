@@ -9,6 +9,7 @@ import 'package:flutter_basic/resouces_page.dart';
 import 'package:flutter_basic/stateful_group_page.dart';
 import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/widgets/list_tile_widget.dart';
+import 'package:flutter_basic/widgets/list_view_widget.dart';
 
 import 'layout_widget.dart';
 
@@ -68,6 +69,7 @@ class _MyAppState extends State<MyApp> {
         'photo':(BuildContext context) => PhotoApp(),
         'water_mark':(BuildContext context) => WaterMark(),
         'list_tile_widget':(BuildContext context) => ListTileWidget(),
+        'list_view_widget':(BuildContext context) => ListViewWidget(),
       },
     );
   }
@@ -104,6 +106,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('拍照App', PhotoApp(), 'photo'),
           _item('Flutter 页面水印', WaterMark(), 'water_mark'),
           _item('ListTile', ListTileWidget(), 'list_tile_widget'),
+          _item('ListView', ListViewWidget(), 'list_view_widget'),
         ],
       ),
     );
