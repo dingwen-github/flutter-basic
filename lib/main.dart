@@ -9,15 +9,21 @@ import 'package:flutter_basic/resouces_page.dart';
 import 'package:flutter_basic/stateful_group_page.dart';
 import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/webview_demo.dart';
+import 'package:flutter_basic/widgets/button_widget.dart';
 import 'package:flutter_basic/widgets/checkbox_list_tile_widget.dart';
+import 'package:flutter_basic/widgets/container_widget.dart';
 import 'package:flutter_basic/widgets/list_tile_widget.dart';
 import 'package:flutter_basic/widgets/list_view_widget.dart';
+import 'package:flutter_basic/widgets/material_app_widget.dart';
 import 'package:flutter_basic/widgets/scaffold_appbar_widget.dart';
 import 'package:flutter_basic/widgets/scaffold_bottom_app_bar.dart';
 import 'package:flutter_basic/widgets/scaffold_bottom_navigation_bar_widget.dart';
 import 'package:flutter_basic/widgets/scaffold_drawer_widget.dart';
+import 'package:flutter_basic/widgets/text_widget.dart';
+import 'package:flutter_basic/widgets/text_field_widget.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
+import 'case/webview-js/webview_js_interaction.dart';
 import 'layout_widget.dart';
 
 void main() => runApp(MyApp());
@@ -88,6 +94,12 @@ class _MyAppState extends State<MyApp> {
         'tab_bar_bottom_navigation_bar': (BuildContext context) => TabBootomNvPage(),
         'scaffold_bottom_navigation_bar_widget': (BuildContext context) => ScaffoldBottomNavigationBarWidget(),
         'scaffold_bottom_app_bar': (BuildContext context) => ScaffoldBottomAppBar(),
+        'web_view_js_interaction': (BuildContext context) => WebViewJsInteraction(),
+        'material_app_widget': (BuildContext context) => MaterialAppWidget(),
+        'container_widget': (BuildContext context) => ContainerWidget(),
+        'text_widget': (BuildContext context) => TextWidget(),
+        'button_widget': (BuildContext context) => ButtonWidget(),
+        'text_field_widget': (BuildContext context) => TextFieldWidget(),
       },
     );
   }
@@ -134,6 +146,12 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('tab_bar_bottom_navigation_bar', TabBootomNvPage(), 'tab_bar_bottom_navigation_bar'),
         _item('scaffold_bottom_navigation_bar_widget', ScaffoldBottomNavigationBarWidget(), 'scaffold_bottom_navigation_bar_widget'),
         _item('scaffold_bottom_app_bar', ScaffoldBottomAppBar(), 'scaffold_bottom_app_bar'),
+        _item('web_view_js_interaction', WebViewJsInteraction(), 'web_view_js_interaction'),
+        _item('MaterialApp', MaterialAppWidget(), 'material_app_widget'),
+        _item('Container', ContainerWidget(), 'container_widget'),
+        _item('Text', TextWidget(), 'text_widget'),
+        _item('Button', ButtonWidget(), 'button_widget'),
+        _item('TextFiled', TextFieldWidget(), 'text_field_widget'),
       ],
     );
 //      child: Column(

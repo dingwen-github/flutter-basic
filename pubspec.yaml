@@ -30,6 +30,8 @@ dependencies:
   disable_screenshots: 0.0.1 #latest version
 #  WebView
   webview_flutter: ^0.3.22+1
+#  弹窗
+  fluttertoast: ^4.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
