@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
+import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/flutter_widget_lifecycle.dart';
 import 'package:flutter_basic/gesture_page.dart';
 import 'package:flutter_basic/launch_page.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/webview_demo.dart';
 import 'package:flutter_basic/widgets/animated_builder_demo.dart';
 import 'package:flutter_basic/widgets/animated_widget_Demo.dart';
-import 'package:flutter_basic/widgets/animation_demo_one.dart';
 import 'package:flutter_basic/widgets/button_widget.dart';
 import 'package:flutter_basic/widgets/checkbox_list_tile_widget.dart';
 import 'package:flutter_basic/widgets/container_widget.dart';
@@ -31,6 +31,10 @@ import 'package:flutter_basic/widgets/top_navigation.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
 import 'case/webview-js/webview_js_interaction.dart';
+import 'demoes/animation_demo_one.dart';
+import 'demoes/http_future_demo.dart';
+import 'demoes/list_view_demo.dart';
+import 'demoes/shared_preferences_demo.dart';
 import 'layout_widget.dart';
 
 void main() => runApp(MyApp());
@@ -121,6 +125,10 @@ class _MyAppState extends State<MyApp> {
         'PhotoHero': (BuildContext context) => HeroAnimation(),
         'Radial': (BuildContext context) => RadialExpansionDemo(),
         'top_navigation': (BuildContext context) => TopNavigation(),
+        'http_future': (BuildContext context) => HttpFutureDemo(),
+        'http_future_builder': (BuildContext context) => HttpFutureBuilderDemo(),
+        'shared_preferences_demo': (BuildContext context) => HttpFutureBuilderDemo(),
+        'list_view_demo': (BuildContext context) => ListViewDemo(),
       },
     );
   }
@@ -188,6 +196,10 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('PhotoHero', HeroAnimation(), 'PhotoHero'),
         _item('Radial', RadialExpansionDemo(), 'Radial'),
         _item('top_navigation', TopNavigation(), 'top_navigation'),
+        _item('http_future', HttpFutureDemo(), 'http_future'),
+        _item('http_future_builder', HttpFutureBuilderDemo(), 'http_future_builder'),
+        _item('shared_preferences_demo', SharedPreferencesDemo(), 'shared_preferences_demo'),
+        _item('list_view_demo', ListViewDemo(), 'list_view_demo'),
       ],
     );
 //      child: Column(

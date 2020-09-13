@@ -39,6 +39,10 @@ dependencies:
   transparent_image: ^1.0.0
 #  图片缓存
   cached_network_image: ^2.0.0
+  #Http请求
+  http: ^0.12.2
+  #本地数据存储
+  shared_preferences: ^0.5.10
 dev_dependencies:
   flutter_test:
     sdk: flutter
