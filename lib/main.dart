@@ -27,6 +27,7 @@ import 'package:flutter_basic/widgets/scaffold_bottom_navigation_bar_widget.dart
 import 'package:flutter_basic/widgets/scaffold_drawer_widget.dart';
 import 'package:flutter_basic/widgets/text_widget.dart';
 import 'package:flutter_basic/widgets/text_field_widget.dart';
+import 'package:flutter_basic/widgets/top_navigation.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
 import 'case/webview-js/webview_js_interaction.dart';
@@ -119,6 +120,7 @@ class _MyAppState extends State<MyApp> {
         'animated_build': (BuildContext context) => AnimatedBuildDemo(),
         'PhotoHero': (BuildContext context) => HeroAnimation(),
         'Radial': (BuildContext context) => RadialExpansionDemo(),
+        'top_navigation': (BuildContext context) => TopNavigation(),
       },
     );
   }
@@ -185,6 +187,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('AnimatedBuilder', AnimatedBuildDemo(), 'animated_build'),
         _item('PhotoHero', HeroAnimation(), 'PhotoHero'),
         _item('Radial', RadialExpansionDemo(), 'Radial'),
+        _item('top_navigation', TopNavigation(), 'top_navigation'),
       ],
     );
 //      child: Column(
