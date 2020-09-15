@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///Flutter listView 基础
-
+///Flutter 基础 GridView
 const CITY_NAMES = [
   '北京',
   '上海',
@@ -18,37 +18,34 @@ const CITY_NAMES = [
   '拉萨'
 ];
 
-class ListViewDemo extends StatefulWidget {
+class GridViewWidget extends StatefulWidget {
   @override
-  _ListViewDemoState createState() => _ListViewDemoState();
+  _GridViewWidgetState createState() => _GridViewWidgetState();
 }
 
-class _ListViewDemoState extends State<ListViewDemo> {
+class _GridViewWidgetState extends State<GridViewWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ListView Demo'),
+        title: Text('GridView'),
+        leading: BackButton(),
       ),
-      body: ListView(
-        scrollDirection: Axis.horizontal,
+      body: GridView.count(
+        crossAxisCount: 2,
         children: _buildList(),
       ),
     );
   }
 
   _buildList() {
-    return CITY_NAMES.map((city) => _item(city)).toList();
+    return CITY_NAMES.map((city) => _buildItem(city)).toList();
   }
 
-  Widget _item(String city) {
+  Widget _buildItem(String city) {
     return Container(
-      width: 160,
-      margin: EdgeInsets.only(right: 5),
-      alignment: Alignment.center,
-
-      ///color和decoration里面的颜色冲突，只能设置一个
-//      color: Colors.red,
+      height: 80.0,
+      margin: EdgeInsets.only(bottom: 5,right: 5),
       decoration: BoxDecoration(color: Colors.teal),
       child: Text(
         city,

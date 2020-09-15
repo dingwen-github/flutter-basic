@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
+import 'package:flutter_basic/demoes/pull_drop_demo.dart';
 import 'package:flutter_basic/flutter_widget_lifecycle.dart';
 import 'package:flutter_basic/gesture_page.dart';
 import 'package:flutter_basic/launch_page.dart';
@@ -10,11 +11,13 @@ import 'package:flutter_basic/resouces_page.dart';
 import 'package:flutter_basic/stateful_group_page.dart';
 import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/webview_demo.dart';
-import 'package:flutter_basic/widgets/animated_builder_demo.dart';
-import 'package:flutter_basic/widgets/animated_widget_Demo.dart';
+import 'package:flutter_basic/demoes/animated_builder_demo.dart';
+import 'package:flutter_basic/demoes/animated_widget_Demo.dart';
 import 'package:flutter_basic/widgets/button_widget.dart';
 import 'package:flutter_basic/widgets/checkbox_list_tile_widget.dart';
 import 'package:flutter_basic/widgets/container_widget.dart';
+import 'package:flutter_basic/widgets/expansion_tile_widget.dart';
+import 'package:flutter_basic/widgets/grid_view_widget.dart';
 import 'package:flutter_basic/widgets/image_widget.dart';
 import 'package:flutter_basic/widgets/list_tile_widget.dart';
 import 'package:flutter_basic/widgets/list_view_widget.dart';
@@ -129,6 +132,9 @@ class _MyAppState extends State<MyApp> {
         'http_future_builder': (BuildContext context) => HttpFutureBuilderDemo(),
         'shared_preferences_demo': (BuildContext context) => HttpFutureBuilderDemo(),
         'list_view_demo': (BuildContext context) => ListViewDemo(),
+        'expansion_tile_widget': (BuildContext context) => ExpansionTileWidget(),
+        'grid_view_widget': (BuildContext context) => GridViewWidget(),
+        'pull_drop_demo': (BuildContext context) => PullDropDemo(),
       },
     );
   }
@@ -200,6 +206,9 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('http_future_builder', HttpFutureBuilderDemo(), 'http_future_builder'),
         _item('shared_preferences_demo', SharedPreferencesDemo(), 'shared_preferences_demo'),
         _item('list_view_demo', ListViewDemo(), 'list_view_demo'),
+        _item('ExpansionTile', ExpansionTileWidget(), 'expansion_tile_widget'),
+        _item('GridView', GridViewWidget(), 'grid_view_widget'),
+        _item('pull_drop_demo', PullDropDemo(), 'pull_drop_demo'),
       ],
     );
 //      child: Column(
