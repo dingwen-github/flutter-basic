@@ -211,31 +211,6 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('pull_drop_demo', PullDropDemo(), 'pull_drop_demo'),
       ],
     );
-//      child: Column(
-//        children: <Widget>[
-//          SwitchListTile(value: byName,onChanged: (value){
-//            setState(() {
-//              byName = value;
-//            });
-//          },
-//            title: Text('${byName ?'' :'不'}通过路由名跳转'),),
-//          _item('StatelessWidget与基础组件',LessGroupPage(),'less'),
-//          _item('StatefulWidget与基础组件',StatefulGroupPage(),'ful'),
-//          _item('LayoutWidget与基础组件',LayoutWidget(),'layout'),
-//          _item('如何检测用户手势以及处理点击事件',GesturePage(),'gesture'),
-//          _item('resource导入',ResourcePage(),'resource'),
-//          _item('如何打开第三方软件', LaunchPage(), 'launch'),
-//          _item('Flutter 页面生命周期', FlutterWidgetLifeCycle(), 'life'),
-//          _item('App生命周期', AppLifecycle(), 'app_life'),
-//          _item('拍照App', PhotoApp(), 'photo'),
-//          _item('Flutter 页面水印', WaterMark(), 'water_mark'),
-//          _item('ListTile', ListTileWidget(), 'list_tile_widget'),
-//          _item('ListView', ListViewWidget(), 'list_view_widget'),
-//          _item('WebView', WebViewDemo(), 'web_view_demo'),
-//          _item('CheckBoxListTile', CustomCheckBoxListTile(), 'checkbox_list_tile'),
-//          _item('Scaffold', ScaffoldWidget(), 'scaffold_widget'),
-//        ],
-//      ),
   }
 
   _item(String title, Widget page, String routeName) {
