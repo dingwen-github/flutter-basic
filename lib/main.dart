@@ -23,6 +23,7 @@ import 'package:flutter_basic/widgets/list_tile_widget.dart';
 import 'package:flutter_basic/widgets/list_view_widget.dart';
 import 'package:flutter_basic/widgets/material_app_widget.dart';
 import 'package:flutter_basic/widgets/photo_hero.dart';
+import 'package:flutter_basic/widgets/physical_model_widget.dart';
 import 'package:flutter_basic/widgets/radial_hero.dart';
 import 'package:flutter_basic/widgets/scaffold_appbar_widget.dart';
 import 'package:flutter_basic/widgets/scaffold_bottom_app_bar.dart';
@@ -129,12 +130,16 @@ class _MyAppState extends State<MyApp> {
         'Radial': (BuildContext context) => RadialExpansionDemo(),
         'top_navigation': (BuildContext context) => TopNavigation(),
         'http_future': (BuildContext context) => HttpFutureDemo(),
-        'http_future_builder': (BuildContext context) => HttpFutureBuilderDemo(),
-        'shared_preferences_demo': (BuildContext context) => HttpFutureBuilderDemo(),
+        'http_future_builder': (BuildContext context) =>
+            HttpFutureBuilderDemo(),
+        'shared_preferences_demo': (BuildContext context) =>
+            HttpFutureBuilderDemo(),
         'list_view_demo': (BuildContext context) => ListViewDemo(),
-        'expansion_tile_widget': (BuildContext context) => ExpansionTileWidget(),
+        'expansion_tile_widget': (BuildContext context) =>
+            ExpansionTileWidget(),
         'grid_view_widget': (BuildContext context) => GridViewWidget(),
         'pull_drop_demo': (BuildContext context) => PullDropDemo(),
+        'physical_model_widget': (BuildContext context) => PhysicalModelWidget(),
       },
     );
   }
@@ -175,15 +180,12 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('ListTile', ListTileWidget(), 'list_tile_widget'),
         _item('ListView', ListViewWidget(), 'list_view_widget'),
         _item('WebView', WebViewDemo(), 'web_view_demo'),
-        _item(
-            'CheckBoxListTile', CustomCheckBoxListTile(), 'checkbox_list_tile'),
+        _item('CheckBoxListTile', CustomCheckBoxListTile(), 'checkbox_list_tile'),
         _item('Scaffold', ScaffoldWidget(), 'scaffold_widget'),
-        _item('Scaffold Drawer', ScaffoldDrawerWidget(),
-            'scaffold_drawer_widget'),
+        _item('Scaffold Drawer', ScaffoldDrawerWidget(), 'scaffold_drawer_widget'),
         _item('tab_bar_bottom_navigation_bar', TabBootomNvPage(),
             'tab_bar_bottom_navigation_bar'),
-        _item(
-            'scaffold_bottom_navigation_bar_widget',
+        _item('scaffold_bottom_navigation_bar_widget',
             ScaffoldBottomNavigationBarWidget(),
             'scaffold_bottom_navigation_bar_widget'),
         _item('scaffold_bottom_app_bar', ScaffoldBottomAppBar(),
@@ -203,12 +205,15 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('Radial', RadialExpansionDemo(), 'Radial'),
         _item('top_navigation', TopNavigation(), 'top_navigation'),
         _item('http_future', HttpFutureDemo(), 'http_future'),
-        _item('http_future_builder', HttpFutureBuilderDemo(), 'http_future_builder'),
-        _item('shared_preferences_demo', SharedPreferencesDemo(), 'shared_preferences_demo'),
+        _item('http_future_builder', HttpFutureBuilderDemo(),
+            'http_future_builder'),
+        _item('shared_preferences_demo', SharedPreferencesDemo(),
+            'shared_preferences_demo'),
         _item('list_view_demo', ListViewDemo(), 'list_view_demo'),
         _item('ExpansionTile', ExpansionTileWidget(), 'expansion_tile_widget'),
         _item('GridView', GridViewWidget(), 'grid_view_widget'),
         _item('pull_drop_demo', PullDropDemo(), 'pull_drop_demo'),
+        _item('physical_model_widget', PhysicalModelWidget(), 'physical_model_widget'),
       ],
     );
   }
