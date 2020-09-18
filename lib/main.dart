@@ -13,6 +13,7 @@ import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/webview_demo.dart';
 import 'package:flutter_basic/demoes/animated_builder_demo.dart';
 import 'package:flutter_basic/demoes/animated_widget_Demo.dart';
+import 'package:flutter_basic/widgets/box_fix_widget.dart';
 import 'package:flutter_basic/widgets/button_widget.dart';
 import 'package:flutter_basic/widgets/checkbox_list_tile_widget.dart';
 import 'package:flutter_basic/widgets/container_widget.dart';
@@ -140,6 +141,7 @@ class _MyAppState extends State<MyApp> {
         'grid_view_widget': (BuildContext context) => GridViewWidget(),
         'pull_drop_demo': (BuildContext context) => PullDropDemo(),
         'physical_model_widget': (BuildContext context) => PhysicalModelWidget(),
+        'box_fix_widget': (BuildContext context) => BoxFixWidget(),
       },
     );
   }
@@ -214,6 +216,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('GridView', GridViewWidget(), 'grid_view_widget'),
         _item('pull_drop_demo', PullDropDemo(), 'pull_drop_demo'),
         _item('physical_model_widget', PhysicalModelWidget(), 'physical_model_widget'),
+        _item('box_fix_widget', BoxFixWidget(), 'box_fix_widget'),
       ],
     );
   }
