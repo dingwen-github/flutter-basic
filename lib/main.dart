@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/demoes/pull_drop_demo.dart';
+import 'package:flutter_basic/demoes/scoped-model/scoped_model_main.dart';
 import 'package:flutter_basic/flutter_widget_lifecycle.dart';
 import 'package:flutter_basic/gesture_page.dart';
 import 'package:flutter_basic/launch_page.dart';
@@ -13,15 +14,19 @@ import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/webview_demo.dart';
 import 'package:flutter_basic/demoes/animated_builder_demo.dart';
 import 'package:flutter_basic/demoes/animated_widget_Demo.dart';
+import 'package:flutter_basic/widgets/align_widget.dart';
 import 'package:flutter_basic/widgets/box_fix_widget.dart';
 import 'package:flutter_basic/widgets/button_widget.dart';
 import 'package:flutter_basic/widgets/checkbox_list_tile_widget.dart';
 import 'package:flutter_basic/widgets/container_widget.dart';
+import 'package:flutter_basic/widgets/cross_axis_alignment_widget.dart';
+import 'package:flutter_basic/widgets/custom_painter_widget.dart';
 import 'package:flutter_basic/widgets/expansion_tile_widget.dart';
 import 'package:flutter_basic/widgets/grid_view_widget.dart';
 import 'package:flutter_basic/widgets/image_widget.dart';
 import 'package:flutter_basic/widgets/list_tile_widget.dart';
 import 'package:flutter_basic/widgets/list_view_widget.dart';
+import 'package:flutter_basic/widgets/main_axis_alignment_widget.dart';
 import 'package:flutter_basic/widgets/material_app_widget.dart';
 import 'package:flutter_basic/widgets/photo_hero.dart';
 import 'package:flutter_basic/widgets/physical_model_widget.dart';
@@ -33,12 +38,15 @@ import 'package:flutter_basic/widgets/scaffold_drawer_widget.dart';
 import 'package:flutter_basic/widgets/text_widget.dart';
 import 'package:flutter_basic/widgets/text_field_widget.dart';
 import 'package:flutter_basic/widgets/top_navigation.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
 import 'case/webview-js/webview_js_interaction.dart';
 import 'demoes/animation_demo_one.dart';
 import 'demoes/http_future_demo.dart';
 import 'demoes/list_view_demo.dart';
+import 'demoes/scoped-model/count_model.dart';
+import 'demoes/scoped-model/first_child.dart';
 import 'demoes/shared_preferences_demo.dart';
 import 'layout_widget.dart';
 
@@ -51,100 +59,108 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Brightness _brightness = Brightness.light;
-
+  ///创建顶层状态
+  final CountModel countModel = CountModel();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        //设置全局字体
+    return ScopedModel<CountModel>(
+      model: countModel,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          //设置全局字体
 //        fontFamily: 'Lobster',
-        //主题
-        brightness: _brightness,
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Demo'),
+          //主题
+          brightness: _brightness,
+          primarySwatch: Colors.blue,
         ),
-        body: Column(
-          children: <Widget>[
-            RaisedButton(
-              onPressed: () {
-                setState(() {
-                  if (_brightness == Brightness.light) {
-                    _brightness = Brightness.dark;
-                  } else {
-                    _brightness = Brightness.light;
-                  }
-                });
-              },
-              //局部字体设置
-              child: Text(
-                '切换主题dingwen',
-                style: TextStyle(fontFamily: 'Lobster'),
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Demo'),
+          ),
+          body: Column(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_brightness == Brightness.light) {
+                      _brightness = Brightness.dark;
+                    } else {
+                      _brightness = Brightness.light;
+                    }
+                  });
+                },
+                //局部字体设置
+                child: Text(
+                  '切换主题dingwen',
+                  style: TextStyle(fontFamily: 'Lobster'),
+                ),
               ),
-            ),
-            Expanded(child: RouteNavigator()),
-          ],
+              Expanded(child: RouteNavigator()),
+            ],
+          ),
         ),
+        //配置路由
+        routes: <String, WidgetBuilder>{
+          'less': (BuildContext context) => LessGroupPage(),
+          'ful': (BuildContext context) => StatefulGroupPage(),
+          'layout': (BuildContext context) => LayoutWidget(),
+          'gesture': (BuildContext context) => GesturePage(),
+          'resource': (BuildContext context) => ResourcePage(),
+          'launch': (BuildContext context) => LaunchPage(),
+          'life': (BuildContext context) => FlutterWidgetLifeCycle(),
+          'app_life': (BuildContext context) => AppLifecycle(),
+          'photo': (BuildContext context) => PhotoApp(),
+          'water_mark': (BuildContext context) => WaterMark(),
+          'list_tile_widget': (BuildContext context) => ListTileWidget(),
+          'list_view_widget': (BuildContext context) => ListViewWidget(),
+          'web_view_demo': (BuildContext context) => WebViewDemo(),
+          'checkbox_list_tile': (BuildContext context) =>
+              CustomCheckBoxListTile(),
+          'scaffold_widget': (BuildContext context) => ScaffoldWidget(),
+          'scaffold_draw_widget': (BuildContext context) =>
+              ScaffoldDrawerWidget(),
+          'tab_bar_bottom_navigation_bar': (BuildContext context) =>
+              TabBootomNvPage(),
+          'scaffold_bottom_navigation_bar_widget': (BuildContext context) =>
+              ScaffoldBottomNavigationBarWidget(),
+          'scaffold_bottom_app_bar': (BuildContext context) =>
+              ScaffoldBottomAppBar(),
+          'web_view_js_interaction': (BuildContext context) =>
+              WebViewJsInteraction(),
+          'material_app_widget': (BuildContext context) => MaterialAppWidget(),
+          'container_widget': (BuildContext context) => ContainerWidget(),
+          'text_widget': (BuildContext context) => TextWidget(),
+          'button_widget': (BuildContext context) => ButtonWidget(),
+          'text_field_widget': (BuildContext context) => TextFieldWidget(),
+          'image_widget': (BuildContext context) => ImageWidget(),
+          'animation_demo_one_widget': (BuildContext context) =>
+              AnimationDemoOne(),
+          'animated_widget': (BuildContext context) => AnimatedWidgetDemo(),
+          'animated_build': (BuildContext context) => AnimatedBuildDemo(),
+          'PhotoHero': (BuildContext context) => HeroAnimation(),
+          'Radial': (BuildContext context) => RadialExpansionDemo(),
+          'top_navigation': (BuildContext context) => TopNavigation(),
+          'http_future': (BuildContext context) => HttpFutureDemo(),
+          'http_future_builder': (BuildContext context) =>
+              HttpFutureBuilderDemo(),
+          'shared_preferences_demo': (BuildContext context) =>
+              HttpFutureBuilderDemo(),
+          'list_view_demo': (BuildContext context) => ListViewDemo(),
+          'expansion_tile_widget': (BuildContext context) =>
+              ExpansionTileWidget(),
+          'grid_view_widget': (BuildContext context) => GridViewWidget(),
+          'pull_drop_demo': (BuildContext context) => PullDropDemo(),
+          'physical_model_widget': (BuildContext context) => PhysicalModelWidget(),
+          'box_fix_widget': (BuildContext context) => BoxFixWidget(),
+          'custom_painter_widget': (BuildContext context) => CustomPainterWidget(),
+          'scoped_model_demo': (BuildContext context) => FirstChild(),
+          'alignment_widget': (BuildContext context) => AlignWidget(),
+          'main_axis_alignment_widget': (BuildContext context) => MainAxisAlignmentWidget(),
+          'cross_axis_alignment_widget': (BuildContext context) => CrossAxisAlignmentWidget(),
+        },
       ),
-      //配置路由
-      routes: <String, WidgetBuilder>{
-        'less': (BuildContext context) => LessGroupPage(),
-        'ful': (BuildContext context) => StatefulGroupPage(),
-        'layout': (BuildContext context) => LayoutWidget(),
-        'gesture': (BuildContext context) => GesturePage(),
-        'resource': (BuildContext context) => ResourcePage(),
-        'launch': (BuildContext context) => LaunchPage(),
-        'life': (BuildContext context) => FlutterWidgetLifeCycle(),
-        'app_life': (BuildContext context) => AppLifecycle(),
-        'photo': (BuildContext context) => PhotoApp(),
-        'water_mark': (BuildContext context) => WaterMark(),
-        'list_tile_widget': (BuildContext context) => ListTileWidget(),
-        'list_view_widget': (BuildContext context) => ListViewWidget(),
-        'web_view_demo': (BuildContext context) => WebViewDemo(),
-        'checkbox_list_tile': (BuildContext context) =>
-            CustomCheckBoxListTile(),
-        'scaffold_widget': (BuildContext context) => ScaffoldWidget(),
-        'scaffold_draw_widget': (BuildContext context) =>
-            ScaffoldDrawerWidget(),
-        'tab_bar_bottom_navigation_bar': (BuildContext context) =>
-            TabBootomNvPage(),
-        'scaffold_bottom_navigation_bar_widget': (BuildContext context) =>
-            ScaffoldBottomNavigationBarWidget(),
-        'scaffold_bottom_app_bar': (BuildContext context) =>
-            ScaffoldBottomAppBar(),
-        'web_view_js_interaction': (BuildContext context) =>
-            WebViewJsInteraction(),
-        'material_app_widget': (BuildContext context) => MaterialAppWidget(),
-        'container_widget': (BuildContext context) => ContainerWidget(),
-        'text_widget': (BuildContext context) => TextWidget(),
-        'button_widget': (BuildContext context) => ButtonWidget(),
-        'text_field_widget': (BuildContext context) => TextFieldWidget(),
-        'image_widget': (BuildContext context) => ImageWidget(),
-        'animation_demo_one_widget': (BuildContext context) =>
-            AnimationDemoOne(),
-        'animated_widget': (BuildContext context) => AnimatedWidgetDemo(),
-        'animated_build': (BuildContext context) => AnimatedBuildDemo(),
-        'PhotoHero': (BuildContext context) => HeroAnimation(),
-        'Radial': (BuildContext context) => RadialExpansionDemo(),
-        'top_navigation': (BuildContext context) => TopNavigation(),
-        'http_future': (BuildContext context) => HttpFutureDemo(),
-        'http_future_builder': (BuildContext context) =>
-            HttpFutureBuilderDemo(),
-        'shared_preferences_demo': (BuildContext context) =>
-            HttpFutureBuilderDemo(),
-        'list_view_demo': (BuildContext context) => ListViewDemo(),
-        'expansion_tile_widget': (BuildContext context) =>
-            ExpansionTileWidget(),
-        'grid_view_widget': (BuildContext context) => GridViewWidget(),
-        'pull_drop_demo': (BuildContext context) => PullDropDemo(),
-        'physical_model_widget': (BuildContext context) => PhysicalModelWidget(),
-        'box_fix_widget': (BuildContext context) => BoxFixWidget(),
-      },
-    );
-  }
+    );}
 }
 
 class RouteNavigator extends StatefulWidget {
@@ -217,6 +233,11 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('pull_drop_demo', PullDropDemo(), 'pull_drop_demo'),
         _item('physical_model_widget', PhysicalModelWidget(), 'physical_model_widget'),
         _item('box_fix_widget', BoxFixWidget(), 'box_fix_widget'),
+        _item('custom_painter_widget', CustomPainterWidget(), 'custom_painter_widget'),
+        _item('scoped_model_demo', FirstChild(), 'scoped_model_demo'),
+        _item('alignment_widget', AlignWidget(), 'alignment_widget'),
+        _item('main_axis_alignment_widget', MainAxisAlignmentWidget(), 'main_axis_alignment_widget'),
+        _item('cross_axis_alignment_widget', CrossAxisAlignmentWidget(), 'cross_axis_alignment_widget'),
       ],
     );
   }
