@@ -70,11 +70,11 @@ class BootomNvPage extends State {
         elevation: 0,
         child: IconButton(
             icon: Image.asset(
-          "images/tax_unselect.png",
-          color: Colors.white,
-          width: 20,
-          height: 20,
-        )),
+              "images/tax_unselect.png",
+              color: Colors.white,
+              width: 20,
+              height: 20,
+            )),
         onPressed: () {
           setState(() {
             this.currentIndex = 1;
@@ -139,8 +139,8 @@ class BootomNvPage extends State {
             height: 20,
             child: currentIndex == 0
                 ? Image.asset(
-                    "images/home_select.png",
-                  )
+              "images/home_select.png",
+            )
                 : Image.asset("images/home_unselect.png"),
           ),
           onPressed: null),

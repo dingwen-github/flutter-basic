@@ -45,12 +45,12 @@ Future<Post> fetchPost(http.Client client) async {
   }
 }
 
-class Post{
+class Post {
   final String title;
 
   const Post({this.title});
 
- factory Post.fromJson(Map<String,dynamic> json){
+  factory Post.fromJson(Map<String, dynamic> json){
     return Post(
         title: json['title']
     );

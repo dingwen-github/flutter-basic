@@ -45,7 +45,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
   Widget _buildItem(String city) {
     return Container(
       height: 80.0,
-      margin: EdgeInsets.only(bottom: 5,right: 5),
+      margin: EdgeInsets.only(bottom: 5, right: 5),
       decoration: BoxDecoration(color: Colors.teal),
       child: Text(
         city,

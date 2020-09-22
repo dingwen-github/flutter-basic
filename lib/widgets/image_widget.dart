@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
 ///Flutter 基础 Image
 class ImageWidget extends StatefulWidget {
   @override
@@ -75,7 +76,7 @@ class _ImageWidgetState extends State<ImageWidget> {
           Center(
             child: CachedNetworkImage(
                 placeholder: (context, url) => CircularProgressIndicator(),
-                imageUrl:'https://pics2.baidu.com/feed/aa64034f78f0f736de90e1b9a1a6f01eeac41312.jpeg?token=ab24240c8daec27fc6d809a1236816a6'
+                imageUrl: 'https://pics2.baidu.com/feed/aa64034f78f0f736de90e1b9a1a6f01eeac41312.jpeg?token=ab24240c8daec27fc6d809a1236816a6'
             ),
           ),
 

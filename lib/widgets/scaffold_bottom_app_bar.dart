@@ -18,27 +18,33 @@ class _ScaffoldBottomAppBarState extends State<ScaffoldBottomAppBar> {
     super.initState();
   }
 
-  _openNewPage(){
-    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-      return EachView('new page');
-    }));
+  _openNewPage() {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext context) {
+          return EachView('new page');
+        }));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: _openNewPage,
-        child: Icon(Icons.add,color: Colors.white,),
+        child: Icon(Icons.add, color: Colors.white,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       ///和底栏进行融合
       bottomNavigationBar: BottomAppBar(
+
         ///底部工具栏颜色
         color: Colors.blue,
+
         ///设置底栏的形状，一般使用这个都是为了和floatingActionButton融合，
         /// 所以使用的值都是CircularNotchedRectangle(),有缺口的圆形矩形。
         shape: CircularNotchedRectangle(),
         child: Row(
+
           ///里边可以放置大部分Widget，让我们随心所欲的设计底栏
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
@@ -48,7 +54,7 @@ class _ScaffoldBottomAppBarState extends State<ScaffoldBottomAppBar> {
                 Icons.home,
                 color: Colors.white,
               ),
-              onPressed: (){
+              onPressed: () {
                 setState(() {
                   _index = 0;
                 });
@@ -59,7 +65,7 @@ class _ScaffoldBottomAppBarState extends State<ScaffoldBottomAppBar> {
                 Icons.alarm,
                 color: Colors.white,
               ),
-              onPressed: (){
+              onPressed: () {
                 setState(() {
                   _index = 1;
                 });

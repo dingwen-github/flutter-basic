@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 ///Flutter 基础组件 PhysicalModel 和ClipRRect 的主要区别是不能设置Z轴高度和阴影
@@ -13,7 +12,10 @@ class PhysicalModelWidget extends StatelessWidget {
       body: Container(
         width: 300,
         height: 200,
-        margin: EdgeInsets.only(left: (MediaQuery.of(context).size.width-300)/2,top: 15),
+        margin: EdgeInsets.only(left: (MediaQuery
+            .of(context)
+            .size
+            .width - 300) / 2, top: 15),
         child: PhysicalModel(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(6)),
@@ -43,7 +45,7 @@ class PhysicalModelWidget extends StatelessWidget {
     );
   }
 
- Widget _item(ItemViewModel itemViewModel,int index){
+  Widget _item(ItemViewModel itemViewModel, int index) {
     return Container(
       alignment: Alignment.center,
       child: Column(
@@ -57,7 +59,8 @@ class PhysicalModelWidget extends StatelessWidget {
         ],
       ),
     );
- }
+  }
+
   List<ItemViewModel> fetchData() {
     double iconSize = 25;
     List<ItemViewModel> itemDataList = [];
@@ -107,13 +110,13 @@ class PhysicalModelWidget extends StatelessWidget {
     return itemDataList;
   }
 
- List<Widget> _itemList() {
+  List<Widget> _itemList() {
     int index = 0;
-    return fetchData().map((itemData){
+    return fetchData().map((itemData) {
       index ++;
       return _item(itemData, index);
     }).toList();
- }
+  }
 }
 
 class ItemViewModel {

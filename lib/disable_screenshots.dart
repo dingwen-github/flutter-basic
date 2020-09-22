@@ -6,18 +6,20 @@ import 'package:flutter/services.dart';
 
 class DisableScreenshots {
   static DisableScreenshots _instance;
+
   factory DisableScreenshots() {
     if (_instance == null) {
       final MethodChannel methodChannel = const MethodChannel(
           "com.devlxx.DisableScreenshots/disableScreenshots");
       final EventChannel eventChannel =
-          const EventChannel('com.devlxx.DisableScreenshots/observer');
+      const EventChannel('com.devlxx.DisableScreenshots/observer');
       _instance = DisableScreenshots.private(methodChannel, eventChannel);
     }
     return _instance;
   }
 
   DisableScreenshots.private(this._methodChannel, this._eventChannel);
+
   final MethodChannel _methodChannel;
   final EventChannel _eventChannel;
   Stream<void> _onScreenShots;
@@ -31,7 +33,8 @@ class DisableScreenshots {
     }
     OverlayState overlayState = Overlay.of(context);
     _overlayEntry = OverlayEntry(
-        builder: (context) => DisableScreenshotsWatarmark(
+        builder: (context) =>
+            DisableScreenshotsWatarmark(
               rowCount: rowCount,
               columnCount: columnCount,
               text: watermark,
@@ -45,22 +48,24 @@ class DisableScreenshots {
     // return await _methodChannel.invokeMethod<void>("addWatermark", ['我是水印']);
   }
 
-  void addCustomWatermark({BuildContext context, String watermark,int rowCount ,int columnCount ,TextStyle textStyle}) {
+  void addCustomWatermark(
+      {BuildContext context, String watermark, int rowCount, int columnCount, TextStyle textStyle}) {
     if (_overlayEntry != null) {
       _overlayEntry.remove();
     }
     OverlayState overlayState = Overlay.of(context);
     _overlayEntry = OverlayEntry(
-        builder: (context) => DisableScreenshotsWatarmark(
-          rowCount: rowCount,
-          columnCount: columnCount,
-          text: watermark,
-          textStyle: textStyle ??
-              const TextStyle(
-                  color: Color(0x08000000),
-                  fontSize: 14,
-                  decoration: TextDecoration.none),
-        ));
+        builder: (context) =>
+            DisableScreenshotsWatarmark(
+              rowCount: rowCount,
+              columnCount: columnCount,
+              text: watermark,
+              textStyle: textStyle ??
+                  const TextStyle(
+                      color: Color(0x08000000),
+                      fontSize: 14,
+                      decoration: TextDecoration.none),
+            ));
     overlayState.insert(_overlayEntry);
   }
 
@@ -108,8 +113,8 @@ class DisableScreenshotsWatarmark extends StatelessWidget {
     return IgnorePointer(
       child: Container(
           child: Column(
-        children: creatColumnWidgets(),
-      )),
+            children: creatColumnWidgets(),
+          )),
     );
   }
 
@@ -130,8 +135,8 @@ class DisableScreenshotsWatarmark extends StatelessWidget {
     for (var i = 0; i < columnCount; i++) {
       final widget = Expanded(
           child: Row(
-        children: creatRowWdiges(),
-      ));
+            children: creatRowWdiges(),
+          ));
       list.add(widget);
     }
     return list;

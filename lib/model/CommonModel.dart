@@ -21,7 +21,9 @@ class CommonModel {
 
   @override
   String toString() {
-    return 'icon:${this.icon}\ntitle:${this.title}\nurl:${this.url}\nstatusBarColor:${this.statusBarColor}\nhideAppBar:${this.hideAppBar}';
+    return 'icon:${this.icon}\ntitle:${this.title}\nurl:${this
+        .url}\nstatusBarColor:${this.statusBarColor}\nhideAppBar:${this
+        .hideAppBar}';
   }
 
 }

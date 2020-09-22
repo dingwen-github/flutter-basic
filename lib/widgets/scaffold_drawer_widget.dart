@@ -22,6 +22,7 @@ class _ScaffoldDrawerWidgetState extends State<ScaffoldDrawerWidget> {
             Container(
               height: 150,
               child: UserAccountsDrawerHeader(
+
                 ///设置用户名
                 accountName: Text('Drawer'),
 
@@ -52,7 +53,7 @@ class _ScaffoldDrawerWidgetState extends State<ScaffoldDrawerWidget> {
               leading: Icon(Icons.wifi),
               title: new Text('无线网络3'),
               subtitle: new Text('我是副标题'),
-              onTap: (){
+              onTap: () {
                 print('ssss');
               },
             ),

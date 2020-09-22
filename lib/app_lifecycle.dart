@@ -8,7 +8,8 @@ class AppLifecycle extends StatefulWidget {
   _AppLifecycleState createState() => _AppLifecycleState();
 }
 
-class _AppLifecycleState extends State<AppLifecycle> with WidgetsBindingObserver{
+class _AppLifecycleState extends State<AppLifecycle>
+    with WidgetsBindingObserver {
 
   @override
   void initState() {
@@ -16,6 +17,7 @@ class _AppLifecycleState extends State<AppLifecycle> with WidgetsBindingObserver
     WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,13 +35,13 @@ class _AppLifecycleState extends State<AppLifecycle> with WidgetsBindingObserver
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
     print('state=$state');
-    if(state == AppLifecycleState.paused){
+    if (state == AppLifecycleState.paused) {
       print('App进入后台');
-    }else if(state == AppLifecycleState.resumed){
+    } else if (state == AppLifecycleState.resumed) {
       print('App进入前台');
-    }else if(state == AppLifecycleState.inactive){
+    } else if (state == AppLifecycleState.inactive) {
       //不常用，应用程序处于非活动状态，并且未接收用户输入时调用，比如来了一个电话
-    }else if(state == AppLifecycleState.detached){
+    } else if (state == AppLifecycleState.detached) {
       //不常用 没有视图的状态
     }
   }

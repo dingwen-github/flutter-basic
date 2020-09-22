@@ -24,7 +24,7 @@ class _LayoutWidgetState extends State<LayoutWidget> {
           //GestureDetector 手势
 
           leading: GestureDetector(
-            onTap: (){
+            onTap: () {
               //退出当前路由
               Navigator.pop(context);
             },
@@ -162,19 +162,19 @@ class _LayoutWidgetState extends State<LayoutWidget> {
 //            ),
 //          ),
 //        ),
-      body: Column(
-        children: <Widget>[
-          Text('expand'),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
+        body: Column(
+          children: <Widget>[
+            Text('expand'),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                ),
+                child: Text('拉伸填满高度'),
               ),
-              child: Text('拉伸填满高度'),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       ),
     );
   }

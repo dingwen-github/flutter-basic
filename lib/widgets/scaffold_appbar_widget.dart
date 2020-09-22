@@ -12,6 +12,7 @@ class _ScaffoldWidgetState extends State<ScaffoldWidget>
   ///AppBar bottom
   TabController _tabController;
   List _tabs = ['新闻', '老师', '公务员'];
+
   @override
   void initState() {
     ///初始化tabController
@@ -26,8 +27,10 @@ class _ScaffoldWidgetState extends State<ScaffoldWidget>
 //      child: Text('123'),
 //    );
     return Scaffold(
+
       ///顶部标题
       appBar: AppBar(
+
         ///顶部标题 widget
         title: Text('scaffold'),
 
@@ -51,6 +54,7 @@ class _ScaffoldWidgetState extends State<ScaffoldWidget>
 
           ///PopupMenuButton
           PopupMenuButton(
+
             ///长按提示
             tooltip: '长按提示',
 
@@ -130,9 +134,10 @@ class _ScaffoldWidgetState extends State<ScaffoldWidget>
         bottom: TabBar(
           controller: _tabController,
           tabs: _tabs
-              .map((e) => Tab(
-                    text: e,
-                  ))
+              .map((e) =>
+              Tab(
+                text: e,
+              ))
               .toList(),
           onTap: (index) {},
         ),

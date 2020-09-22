@@ -53,7 +53,8 @@ class _PhotoAppState extends State<PhotoApp> {
     //弹出底部弹框 showModalBottomSheet是StatefulWidget自带的方法
     showModalBottomSheet(
         context: context,
-        builder: (context) => Container(
+        builder: (context) =>
+            Container(
               height: 160,
               child: Column(
                 children: <Widget>[
@@ -75,7 +76,7 @@ class _PhotoAppState extends State<PhotoApp> {
   }
 
   _createImages() {
-    return  _images.map((file) {
+    return _images.map((file) {
       return Stack(
         children: <Widget>[
           ClipRRect(

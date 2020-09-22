@@ -11,6 +11,7 @@ class WebViewDemo extends StatefulWidget {
 class _WebViewDemoState extends State<WebViewDemo> {
   // 设置状态
   bool isLoading = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

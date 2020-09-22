@@ -55,16 +55,17 @@ class _ListViewWidgetState extends State<ListViewWidget> {
       floatingActionButton: !showTopBtn
           ? null
           : FloatingActionButton(
-              child: Icon(Icons.arrow_upward),
-              onPressed: () {
-                ///返回底部的时候执行动画
-                _scrollController.animateTo(.0,
-                    duration: Duration(milliseconds: 600), curve: Curves.ease);
-              },
-            ),
+        child: Icon(Icons.arrow_upward),
+        onPressed: () {
+          ///返回底部的时候执行动画
+          _scrollController.animateTo(.0,
+              duration: Duration(milliseconds: 600), curve: Curves.ease);
+        },
+      ),
 
       ///进度条
       body: Scrollbar(
+
         ///监听滚动通知
         child: NotificationListener<ScrollNotification>(
           // ignore: missing_return
@@ -82,6 +83,7 @@ class _ListViewWidgetState extends State<ListViewWidget> {
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
+
               ///构建ListView vertical 垂直方向 默认构造器
 //              _buildListViewDefaultVertical(),
               /// horizontal 水平方向 默认构造器
@@ -109,13 +111,12 @@ class _ListViewWidgetState extends State<ListViewWidget> {
   }
 
   ///构建列表项
-  _buildListItem(
-      {Widget leading,
-      String title,
-      String subtitle,
-      Widget trailing,
-      isThreeLine = false,
-      dense = true}) {
+  _buildListItem({Widget leading,
+    String title,
+    String subtitle,
+    Widget trailing,
+    isThreeLine = false,
+    dense = true}) {
     return ListTile(
       leading: leading,
       title: Text(title),
@@ -145,6 +146,7 @@ class _ListViewWidgetState extends State<ListViewWidget> {
 
   _buildListViewDefaultVertical() {
     return ListView(
+
       ///列表的滚动方向，默认值为Axis.vertical 垂直方向
       scrollDirection: Axis.vertical,
 
@@ -273,11 +275,13 @@ class _ListViewWidgetState extends State<ListViewWidget> {
          */
         Expanded(
           child: ListView.separated(
-              itemBuilder: (context, index) => Text(
+              itemBuilder: (context, index) =>
+                  Text(
                     '$index',
                     textAlign: TextAlign.center,
                   ),
-              separatorBuilder: (context, index) => Divider(
+              separatorBuilder: (context, index) =>
+                  Divider(
                     color: Colors.green,
                     height: 20,
                   ),
@@ -303,15 +307,14 @@ class _ListViewWidgetState extends State<ListViewWidget> {
     继承SliverChildBuilderDelegate  可以对列表的监听
  */
 class MyChildrenDelegate extends SliverChildBuilderDelegate {
-  MyChildrenDelegate(
-    Widget Function(BuildContext, int) builder, {
+  MyChildrenDelegate(Widget Function(BuildContext, int) builder, {
     int childCount,
     bool addAutomaticKeepAlive = true,
     bool addRepaintBoundaries = true,
   }) : super(builder,
-            childCount: childCount,
-            addAutomaticKeepAlives: addAutomaticKeepAlive,
-            addRepaintBoundaries: addRepaintBoundaries);
+      childCount: childCount,
+      addAutomaticKeepAlives: addAutomaticKeepAlive,
+      addRepaintBoundaries: addRepaintBoundaries);
 
   ///监听 在可见的列表中 显示的第一个位置和最后一个位置
   @override

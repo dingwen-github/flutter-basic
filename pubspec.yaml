@@ -23,21 +23,21 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-#  打开第三方应用插件
+  #  打开第三方应用插件
   url_launcher: ^5.5.2
-#相册
+  #相册
   image_picker: ^0.6.7+7
-#  水印
+  #  水印
   disable_screenshots: 0.0.1 #latest version
-#  WebView
+  #  WebView
   webview_flutter: ^0.3.22+1
-#  弹窗
+  #  弹窗
   fluttertoast: ^4.0.1
-#  加载手机本地内存照片
+  #  加载手机本地内存照片
   path_provider: ^1.6.14
-#  图片加载过度，placeholder
+  #  图片加载过度，placeholder
   transparent_image: ^1.0.0
-#  图片缓存
+  #  图片缓存
   cached_network_image: ^2.0.0
   #Http请求
   http: ^0.12.2

@@ -13,8 +13,10 @@ class WebViewJsInteraction extends StatefulWidget {
 
 class _WebViewJsInteractionState extends State<WebViewJsInteraction> {
   bool isLoading = true;
-  final Completer<WebViewController> _controller = Completer<WebViewController>();
+  final Completer<WebViewController> _controller = Completer<
+      WebViewController>();
   WebViewController _webViewController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,18 +24,20 @@ class _WebViewJsInteractionState extends State<WebViewJsInteraction> {
         title: Text('Flutter And JavaScript Interaction'),
         leading: BackButton(),
       ),
-      body: Builder(builder: (BuildContext context){
+      body: Builder(builder: (BuildContext context) {
         return Stack(
           children: <Widget>[
             WebView(
               initialUrl: 'http://192.168.0.117:8081/flutter',
+
               ///JS执行模式，支持JS
               /// 使用JS没限制
               javascriptMode: JavascriptMode.unrestricted,
               //加载进度条
-              navigationDelegate: (NavigationRequest request){
+              navigationDelegate: (NavigationRequest request) {
                 if (request.url.startsWith('https://www.baidu.com')) {
-                  Fluttertoast.showToast(msg: 'JS调用了Flutter By navigationDelegate');
+                  Fluttertoast.showToast(
+                      msg: 'JS调用了Flutter By navigationDelegate');
                   print('blocking navigation to $request}');
                   // 阻止进入页面
                   return NavigationDecision.prevent;
@@ -45,18 +49,19 @@ class _WebViewJsInteractionState extends State<WebViewJsInteraction> {
                 });
                 return NavigationDecision.navigate;
               },
-              onWebViewCreated: (WebViewController webViewController){
+              onWebViewCreated: (WebViewController webViewController) {
                 _controller.complete(webViewController);
                 _webViewController = webViewController;
               },
               //页面加载完成，更新状态
-              onPageFinished: (String url){
+              onPageFinished: (String url) {
                 print('Page finished loading: $url');
                 setState(() {
                   isLoading = false;
                 });
                 // 之后可以调用 _webViewController 的 evaluateJavascript 属性来注入JS
-                this._webViewController?.evaluateJavascript('javaScriptToFlutter()')?.then((result){});
+                this._webViewController?.evaluateJavascript(
+                    'javaScriptToFlutter()')?.then((result) {});
               },
               javascriptChannels: <JavascriptChannel>[
                 _alertJavaScriptChannel(context)
@@ -66,7 +71,7 @@ class _WebViewJsInteractionState extends State<WebViewJsInteraction> {
               child: Center(
                 child: CircularProgressIndicator(),
               ),
-            ): Container(),
+            ) : Container(),
           ],
         );
       },),
@@ -74,12 +79,12 @@ class _WebViewJsInteractionState extends State<WebViewJsInteraction> {
     );
   }
 
-  JavascriptChannel _alertJavaScriptChannel(BuildContext context){
+  JavascriptChannel _alertJavaScriptChannel(BuildContext context) {
     return JavascriptChannel(
-      name: 'Toast',
-      onMessageReceived: (JavascriptMessage message){
-        Fluttertoast.showToast(msg: message.message);
-      }
+        name: 'Toast',
+        onMessageReceived: (JavascriptMessage message) {
+          Fluttertoast.showToast(msg: message.message);
+        }
     );
   }
 

@@ -15,7 +15,7 @@ class _LaunchPageState extends State<LaunchPage> {
       appBar: AppBar(
         title: Text('如何打开第三方应用？'),
         leading: GestureDetector(
-          onTap: ()=> Navigator.pop(context),
+          onTap: () => Navigator.pop(context),
           child: Icon(Icons.arrow_back),
         ),
       ),
@@ -47,7 +47,7 @@ class _LaunchPageState extends State<LaunchPage> {
   }
 
   //打开地图
-  _openMap() async{
+  _openMap() async {
     const url = 'androidamap://keywordNavi?sourceApplication=softname&keyword=爱情海购物公园&style=2';
     if (await canLaunch(url)) {
       await launch(url);

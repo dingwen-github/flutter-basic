@@ -30,9 +30,9 @@ class _AnimationDemoOneState extends State<AnimationDemoOne>
         });
       })
       ..addStatusListener((AnimationStatus status) {
-       setState(() {
-         _animationStatus = status;
-       });
+        setState(() {
+          _animationStatus = status;
+        });
       });
   }
 
@@ -47,16 +47,19 @@ class _AnimationDemoOneState extends State<AnimationDemoOne>
         child: Column(
           children: <Widget>[
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 ///重置动画
                 _animationController.reset();
+
                 ///播放动画
                 _animationController.forward();
               },
-              child: Text('Start',textDirection: TextDirection.ltr,),
+              child: Text('Start', textDirection: TextDirection.ltr,),
             ),
-            Text('State:${_animationStatus.toString()}',textDirection: TextDirection.ltr,),
-            Text('State:${_animationValue.toString()}',textDirection: TextDirection.ltr,),
+            Text('State:${_animationStatus.toString()}',
+              textDirection: TextDirection.ltr,),
+            Text('State:${_animationValue.toString()}',
+              textDirection: TextDirection.ltr,),
             Container(
               height: _animation.value,
               width: _animation.value,

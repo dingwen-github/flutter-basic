@@ -69,6 +69,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       ),
       body: Column(
         children: <Widget>[
+
           ///这会创建一个基础TextField 默认带一个下划线
           TextField(),
           TextField(
@@ -161,6 +162,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           TextField(),
           Expanded(
             child: Container(
+
               ///SizedBox 用来限制一个固定 width height 的空间
               child: SizedBox(
                 width: 400,

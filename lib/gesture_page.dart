@@ -9,7 +9,9 @@ class GesturePage extends StatefulWidget {
 
 class _GesturePageState extends State<GesturePage> {
   String printString = '';
-  double moveX = 0,moveY = 0;
+  double moveX = 0,
+      moveY = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,19 +33,19 @@ class _GesturePageState extends State<GesturePage> {
               Column(
                 children: <Widget>[
                   GestureDetector(
-                    onTap: ()=> _printMsg('点击'),
-                    onDoubleTap: ()=> _printMsg('双击'),
-                    onLongPress: ()=> _printMsg('长按'),
-                    onTapCancel: ()=> _printMsg('取消'),
-                    onTapUp: (e)=> _printMsg('松开'),
+                    onTap: () => _printMsg('点击'),
+                    onDoubleTap: () => _printMsg('双击'),
+                    onLongPress: () => _printMsg('长按'),
+                    onTapCancel: () => _printMsg('取消'),
+                    onTapUp: (e) => _printMsg('松开'),
                     onTapDown: (e) => _printMsg('按下'),
                     child: Container(
                       padding: EdgeInsets.all(60),
                       decoration: BoxDecoration(
                         color: Colors.blue,
                       ),
-                      child: Text('点我',style: TextStyle(
-                        fontSize: 36,color: Colors.white
+                      child: Text('点我', style: TextStyle(
+                          fontSize: 36, color: Colors.white
                       ),),
                     ),
                   ),
@@ -55,13 +57,13 @@ class _GesturePageState extends State<GesturePage> {
                 left: moveX,
                 top: moveY,
                 child: GestureDetector(
-                  onPanUpdate: (e)=> _doMove(e),
+                  onPanUpdate: (e) => _doMove(e),
                   child: Container(
                     width: 72,
                     height: 72,
                     decoration: BoxDecoration(
-                      borderRadius:BorderRadius.circular(36),
-                      color: Colors.red
+                        borderRadius: BorderRadius.circular(36),
+                        color: Colors.red
                     ),
                   ),
                 ),

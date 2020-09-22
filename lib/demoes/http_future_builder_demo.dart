@@ -33,7 +33,7 @@ class _HttpFutureBuilderDemoState extends State<HttpFutureBuilderDemo> {
               if (snapshot.hasError) {
                 return Text(
                   '${snapshot.error}', style: TextStyle(color: Colors.red),);
-              }else{
+              } else {
                 return Column(
                   children: <Widget>[
                     Text('icon:${snapshot.data.icon}'),

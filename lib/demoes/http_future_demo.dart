@@ -27,18 +27,18 @@ class _HttpFutureDemoState extends State<HttpFutureDemo> {
               ///如果catchError与onError同时存在，则会只调用onError
               _fetchGet()
                   .then((CommonModel commonModel) {
-                    setState(() {
-                      data = commonModel.toString();
-                    });
-                  }, onError: (onError) {
-                    print(onError);
-                  })
+                setState(() {
+                  data = commonModel.toString();
+                });
+              }, onError: (onError) {
+                print(onError);
+              })
                   .catchError((catchError) {
-                    print(catchError);
-                  })
+                print(catchError);
+              })
                   .whenComplete(() {
-                    print('无论成功与否最终都会执行');
-                  })
+                print('无论成功与否最终都会执行');
+              })
                   .timeout(Duration(seconds: 2))
                   .then(print)
                   .catchError(print);

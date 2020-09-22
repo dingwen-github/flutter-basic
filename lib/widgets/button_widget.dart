@@ -12,6 +12,7 @@ class ButtonWidget extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
+
           ///它默认带有阴影和灰色背景。按下后，阴影会变大
           RaisedButton(
             child: Text('RaiseButton'),
@@ -35,7 +36,8 @@ class ButtonWidget extends StatelessWidget {
             //外形
             splashColor: Colors.grey,
             //圆角边框
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             //点击事件
             onLongPress: () => print('FlatButton'),
           ),

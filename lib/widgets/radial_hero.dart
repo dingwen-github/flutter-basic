@@ -120,18 +120,21 @@ class RadialExpansionDemo extends StatelessWidget {
           maxRadius: kMaxRadius,
           child: Photo(
             photo: imageName,
-            onTap: (){
-              Navigator.of(context).push(PageRouteBuilder<void>(pageBuilder: (BuildContext context,Animation<double> animation,Animation<double> secondaryAnimation){
-                return AnimatedBuilder(
-                  animation: animation,
-                  builder: (BuildContext context,Widget child){
-                    return Opacity(
-                      opacity: opacityCure.transform(animation.value),
-                      child: _buildPage(context, imageName, description),
+            onTap: () {
+              Navigator.of(context).push(PageRouteBuilder<void>(
+                  pageBuilder: (BuildContext context,
+                      Animation<double> animation,
+                      Animation<double> secondaryAnimation) {
+                    return AnimatedBuilder(
+                      animation: animation,
+                      builder: (BuildContext context, Widget child) {
+                        return Opacity(
+                          opacity: opacityCure.transform(animation.value),
+                          child: _buildPage(context, imageName, description),
+                        );
+                      },
                     );
-                  },
-                );
-              }));
+                  }));
             },
           ),
         ),
@@ -152,9 +155,15 @@ class RadialExpansionDemo extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            _buildHero(context, 'https://raw.githubusercontent.com/flutter/website/master/examples/_animation/radial_hero_animation/images/chair-alpha.png', 'Chair'),
-            _buildHero(context, 'https://raw.githubusercontent.com/flutter/website/master/examples/_animation/radial_hero_animation/images/binoculars-alpha.png', 'Binoculars'),
-            _buildHero(context, 'https://raw.githubusercontent.com/flutter/website/master/examples/_animation/radial_hero_animation/images/beachball-alpha.png', 'Beach ball'),
+            _buildHero(context,
+                'https://raw.githubusercontent.com/flutter/website/master/examples/_animation/radial_hero_animation/images/chair-alpha.png',
+                'Chair'),
+            _buildHero(context,
+                'https://raw.githubusercontent.com/flutter/website/master/examples/_animation/radial_hero_animation/images/binoculars-alpha.png',
+                'Binoculars'),
+            _buildHero(context,
+                'https://raw.githubusercontent.com/flutter/website/master/examples/_animation/radial_hero_animation/images/beachball-alpha.png',
+                'Beach ball'),
           ],
         ),
       ),

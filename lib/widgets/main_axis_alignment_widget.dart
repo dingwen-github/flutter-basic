@@ -16,6 +16,7 @@ class MainAxisAlignmentWidget extends StatelessWidget {
       ///如果是Row布局，主轴则是水平方向
       ///如果是Column布局，主轴则是垂直方向
       body: Row(
+
         ///左 ----> 右  start end
         ///上 ----> 下 start end
         ///子元素无间距，均匀排列
@@ -42,6 +43,7 @@ class MainAxisAlignmentWidget extends StatelessWidget {
 
   Widget _item(String name) {
     return Container(
+
       ///子元素居中
       alignment: Alignment.center,
       decoration: BoxDecoration(

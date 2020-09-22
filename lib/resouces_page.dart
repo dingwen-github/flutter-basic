@@ -12,13 +12,13 @@ class _ResourcePageState extends State<ResourcePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue
+          primarySwatch: Colors.blue
       ),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Flutter 资源导入'),
           leading: GestureDetector(
-            onTap: ()=> Navigator.pop(context),
+            onTap: () => Navigator.pop(context),
             child: Icon(Icons.arrow_back),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 ///Flutter 基础 BoxFix 使用
 class BoxFixWidget extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class BoxFixWidget extends StatelessWidget {
         BoxFit.fitHeight:图片填满高度，宽度可能会被截断
         BoxFit.scaleDown:图片可以完整显示，但是可能不能填充满。
          */
-        child: Image.asset('images/mac.jpeg',fit: BoxFit.contain,),
+        child: Image.asset('images/mac.jpeg', fit: BoxFit.contain,),
       ),
     );
   }

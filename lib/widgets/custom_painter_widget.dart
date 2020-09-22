@@ -12,14 +12,13 @@ class CustomPainterWidget extends StatefulWidget {
   final Color numberColor;
   final Color borderColor;
 
-  const CustomPainterWidget(
-      {Key key,
-      this.radius = 150.0,
-      this.hourHandColor,
-      this.minuteHandColor,
-      this.secondHandColor,
-      this.numberColor,
-      this.borderColor})
+  const CustomPainterWidget({Key key,
+    this.radius = 150.0,
+    this.hourHandColor,
+    this.minuteHandColor,
+    this.secondHandColor,
+    this.numberColor,
+    this.borderColor})
       : super(key: key);
 
   @override
@@ -49,12 +48,14 @@ class _CustomPainterWidgetState extends State<CustomPainterWidget> {
         leading: BackButton(),
       ),
       body: CustomPaint(
+
         ///主绘制工具
         painter: ClockPainter(dateTime,
             numberColor: Colors.black,
             handColor: Colors.black,
             borderColor: Colors.black,
             radius: widget.radius),
+
         ///画布大小
         size: Size(widget.radius * 2, widget.radius * 2),
       ),
@@ -81,9 +82,9 @@ class ClockPainter extends CustomPainter {
 
   ClockPainter(this.datetime,
       {this.radius = 150.0,
-      this.handColor = Colors.black,
-      this.numberColor = Colors.black,
-      this.borderColor = Colors.black}) {
+        this.handColor = Colors.black,
+        this.numberColor = Colors.black,
+        this.borderColor = Colors.black}) {
     borderWidth = radius / 14;
     final secondDistance = radius - borderWidth * 2;
     //init seconds offset
@@ -108,12 +109,16 @@ class ClockPainter extends CustomPainter {
 
     //draw border
     final borderPaint = Paint()
+
     ///画笔颜色
       ..color = borderColor
-      ///绘制模式，画线或者充满
+
+    ///绘制模式，画线或者充满
       ..style = PaintingStyle.stroke
-      ///线条宽度
+
+    ///线条宽度
       ..strokeWidth = borderWidth;
+
     ///绘制圆形（圆心坐标，半径，画笔）
     canvas.drawCircle(
         Offset(radius, radius), radius - borderWidth / 2, borderPaint);
@@ -126,8 +131,10 @@ class ClockPainter extends CustomPainter {
       ///绘制点（PointModel枚举，坐标点List，画笔）
       /// PointMode的枚举类型有三个，points（点），lines（线，隔点连接），polygon（线，相邻连接）
       canvas.drawPoints(PointMode.points, secondsOffset, secondPPaint);
+
       ///保存之前画的内容与canvas的状态
       canvas.save();
+
       ///平移（x,y）
       canvas.translate(radius, radius);
 
@@ -151,10 +158,12 @@ class ClockPainter extends CustomPainter {
           //helps make the text painted vertically
           ///0,0 坐标旋转
           canvas.rotate(-angle * i);
+
           ///新建一个图层
           textPainter.layout();
           textPainter.paint(canvas,
               new Offset(-(textPainter.width / 2), -(textPainter.height / 2)));
+
           ///保存
           ///将该方法与前面最近的一个save() 或saveLayer()之间的操作合并到一起，save与restore，saveLayer与restore是成对儿出现的，只有save没有restore，是会报错的
           canvas.restore();
@@ -183,6 +192,7 @@ class ClockPainter extends CustomPainter {
     final hourPaint = Paint()
       ..color = handColor
       ..strokeWidth = 8 * scale;
+
     ///给定两点之前绘制线条
     canvas.drawLine(hourHand1, hourHand2, hourPaint);
 

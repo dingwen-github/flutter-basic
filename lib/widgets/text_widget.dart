@@ -44,6 +44,7 @@ class TextWidget extends StatelessWidget {
               textScaleFactor: 2.0,
 
               style: TextStyle(
+
                 ///文字颜色
                 color: Colors.deepOrange,
 
@@ -100,7 +101,8 @@ class TextWidget extends StatelessWidget {
                     color: Colors.green,
                     fontSize: 30.0,
                   ),
-                  recognizer: TapGestureRecognizer()..onTap =()=> print('点我'),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => print('点我'),
                 ),
               ],
             )),

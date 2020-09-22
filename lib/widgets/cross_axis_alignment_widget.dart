@@ -18,12 +18,14 @@ class CrossAxisAlignmentWidget extends StatelessWidget {
       ///如果是Row布局，交叉轴则是垂直方向
       ///如果是Column布局，交叉轴则是水平方向
       body: Row(
+
         ///将子控件放在交叉轴的起始位置
 //        crossAxisAlignment: CrossAxisAlignment.start,
         ///将子控件放在交叉轴的结束位置
 //          crossAxisAlignment: CrossAxisAlignment.center
-         /// 使子控件填满交叉轴
+        /// 使子控件填满交叉轴
         crossAxisAlignment: CrossAxisAlignment.stretch,
+
         ///textDirection就是用来控制水平方向的起始位置和排列方向
         //       textDirection: TextDirection.rtl,
         ///verticalDirection就是用来控制垂直方向的起始位置和排列方向
@@ -40,6 +42,7 @@ class CrossAxisAlignmentWidget extends StatelessWidget {
 
   Widget _item(String name) {
     return Container(
+
       ///子元素居中
       alignment: Alignment.center,
       decoration: BoxDecoration(

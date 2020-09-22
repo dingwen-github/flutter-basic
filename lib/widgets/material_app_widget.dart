@@ -8,7 +8,7 @@ class MaterialAppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-        ///应用默认所显示的界面 页面
+      ///应用默认所显示的界面 页面
         home: Scaffold(
           appBar: AppBar(
             title: Text('MaterialApp'),

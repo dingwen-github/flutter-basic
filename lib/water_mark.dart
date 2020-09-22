@@ -53,9 +53,15 @@ class _WaterMarkState extends State<WaterMark> {
               child: Text("添加默认水印")),
           RaisedButton(
               onPressed: () {
-                TextStyle textStyle = TextStyle(fontSize: 20,color: Colors.red[200],decoration: TextDecoration.none);
+                TextStyle textStyle = TextStyle(fontSize: 20,
+                    color: Colors.red[200],
+                    decoration: TextDecoration.none);
                 // 添加自定义widget当做水印
-                _plugin.addCustomWatermark(context: context,rowCount: 3,columnCount: 10,watermark: '冻结',textStyle: textStyle);
+                _plugin.addCustomWatermark(context: context,
+                    rowCount: 3,
+                    columnCount: 10,
+                    watermark: '冻结',
+                    textStyle: textStyle);
               },
               child: Text("添加自定义水印")),
           RaisedButton(
@@ -79,7 +85,8 @@ class _WaterMarkState extends State<WaterMark> {
           RaisedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => Scaffold(
+                    builder: (_) =>
+                        Scaffold(
                           appBar: AppBar(
                             title: Text("我是新页面"),
                           ),

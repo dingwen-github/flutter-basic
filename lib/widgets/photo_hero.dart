@@ -45,7 +45,7 @@ class HeroAnimation extends StatelessWidget {
       body: Center(
         child: PhotoHero(
           photo:
-              'https://pics2.baidu.com/feed/aa64034f78f0f736de90e1b9a1a6f01eeac41312.jpeg?token=ab24240c8daec27fc6d809a1236816a6',
+          'https://pics2.baidu.com/feed/aa64034f78f0f736de90e1b9a1a6f01eeac41312.jpeg?token=ab24240c8daec27fc6d809a1236816a6',
           width: 300.0,
           onTap: () {
             Navigator.of(context)
@@ -61,7 +61,7 @@ class HeroAnimation extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: PhotoHero(
                     photo:
-                        'https://pics2.baidu.com/feed/aa64034f78f0f736de90e1b9a1a6f01eeac41312.jpeg?token=ab24240c8daec27fc6d809a1236816a6',
+                    'https://pics2.baidu.com/feed/aa64034f78f0f736de90e1b9a1a6f01eeac41312.jpeg?token=ab24240c8daec27fc6d809a1236816a6',
                     width: 100.0,
                     onTap: () {
                       Navigator.of(context).pop();

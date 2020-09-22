@@ -1,14 +1,15 @@
-
-
 import 'package:flutter/material.dart';
 
 class ScaffoldBottomNavigationBarWidget extends StatefulWidget {
   ScaffoldBottomNavigationBarWidget({Key key}) : super(key: key);
+
   @override
-  _ScaffoldBottomNavigationBarWidgetState createState() => _ScaffoldBottomNavigationBarWidgetState();
+  _ScaffoldBottomNavigationBarWidgetState createState() =>
+      _ScaffoldBottomNavigationBarWidgetState();
 }
 
-class _ScaffoldBottomNavigationBarWidgetState extends State<ScaffoldBottomNavigationBarWidget> {
+class _ScaffoldBottomNavigationBarWidgetState
+    extends State<ScaffoldBottomNavigationBarWidget> {
   int _currentIndex = 0;
   List _pages = [
   ];
@@ -16,12 +17,10 @@ class _ScaffoldBottomNavigationBarWidgetState extends State<ScaffoldBottomNaviga
   @override
   void initState() {
     ///初始化pages
-    _pages
-      ..add(Text('Java'))
-      ..add(Text('python'))
-      ..add(Text('c'));
+    _pages..add(Text('Java'))..add(Text('python'))..add(Text('c'));
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +38,14 @@ class _ScaffoldBottomNavigationBarWidgetState extends State<ScaffoldBottomNaviga
           });
         },
         items: [
-          _buildBottomNavigationBarItem(Icon(Icons.home),'主页'),
-          _buildBottomNavigationBarItem(Icon(Icons.category),'分类'),
-          _buildBottomNavigationBarItem(Icon(Icons.my_location),'我的'),
+          _buildBottomNavigationBarItem(Icon(Icons.home), '主页'),
+          _buildBottomNavigationBarItem(Icon(Icons.category), '分类'),
+          _buildBottomNavigationBarItem(Icon(Icons.my_location), '我的'),
         ],
       ),
     );
   }
+
   _buildBottomNavigationBarItem(Icon icon, String title) {
     return BottomNavigationBarItem(
         icon: icon,

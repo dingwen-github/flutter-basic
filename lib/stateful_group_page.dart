@@ -23,13 +23,13 @@ class _StatefulGroupPageState extends State<StatefulGroupPage> {
         appBar: AppBar(
           title: Text('StatefulWidget与基础组件'),
           leading: GestureDetector(
-            onTap: ()=> Navigator.pop(context),
+            onTap: () => Navigator.pop(context),
             child: Icon(Icons.arrow_back),
           ),
         ),
         //底部导航栏
         bottomNavigationBar: BottomNavigationBar(
-            //控制切换
+          //控制切换
             currentIndex: _currentIndex,
             onTap: (index) {
               setState(() {
@@ -68,7 +68,7 @@ class _StatefulGroupPageState extends State<StatefulGroupPage> {
           child: Text('点我'),
         ),
         //RefreshIndicator刷新
-        body: _currentIndex == 0 ? RefreshIndicator(child:ListView(
+        body: _currentIndex == 0 ? RefreshIndicator(child: ListView(
           children: <Widget>[
             Text('首页'),
             //输入框用法
@@ -88,30 +88,33 @@ class _StatefulGroupPageState extends State<StatefulGroupPage> {
               margin: EdgeInsets.only(top: 20),
               //装饰器
               decoration: BoxDecoration(
-                color: Colors.lightBlueAccent
+                  color: Colors.lightBlueAccent
               ),
               child: PageView(
                 children: <Widget>[
-                  _item('page1',Colors.deepOrange),
-                  _item('page2',Colors.blue),
-                  _item('page3',Colors.pink),
-                  _item('page4',Colors.lightBlueAccent),
+                  _item('page1', Colors.deepOrange),
+                  _item('page2', Colors.blue),
+                  _item('page3', Colors.pink),
+                  _item('page4', Colors.lightBlueAccent),
                 ],
               ),
             ),
           ],
         ),
           //执行下拉刷新的回调
-            onRefresh: _handleRefresh,
+          onRefresh: _handleRefresh,
           //加载网络图片
-        ) : Image.network('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',width: 100,height: 100,),
+        ) : Image.network(
+          'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+          width: 100, height: 100,),
       ),
     );
   }
 }
 
- Widget _item(String title, Color color) {
-  TextStyle textStyle = TextStyle(fontSize: 20,color: Colors.black54,fontWeight: FontWeight.bold);
+Widget _item(String title, Color color) {
+  TextStyle textStyle = TextStyle(
+      fontSize: 20, color: Colors.black54, fontWeight: FontWeight.bold);
   return Container(
     alignment: Alignment.center,
     decoration: BoxDecoration(
@@ -124,7 +127,7 @@ class _StatefulGroupPageState extends State<StatefulGroupPage> {
   );
 }
 
-Future<String> _handleRefresh() async{
+Future<String> _handleRefresh() async {
   await Future.delayed(Duration(microseconds: 2000));
   return 'success';
 }

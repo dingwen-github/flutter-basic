@@ -17,7 +17,7 @@ void main() {
       print(response.request.headers['token']);
       print(response.body);
       // 解析返回的 json
-      Person person =jsonDecode(response.body);
+      Person person = jsonDecode(response.body);
       // 验证 person 对象不为空
       expect(person, isNotNull);
       // 检测 person 对象中的属性值是否都正确

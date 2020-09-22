@@ -31,8 +31,8 @@ class LessGroupPage extends StatelessWidget {
           //上下布局
           child: Column(
             children: <Widget>[
-              Text('I an Text',style: textStyle,),
-              Icon(Icons.android,size: 50,color: Colors.red,),
+              Text('I an Text', style: textStyle,),
+              Icon(Icons.android, size: 50, color: Colors.red,),
               //关闭按钮
               CloseButton(),
               //返回按钮
