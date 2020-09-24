@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
+import 'package:flutter_basic/demoes/globalkey/global_key_demo_.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/demoes/pull_drop_demo.dart';
 import 'package:flutter_basic/flutter_widget_lifecycle.dart';
@@ -10,7 +11,6 @@ import 'package:flutter_basic/photo_app.dart';
 import 'package:flutter_basic/resouces_page.dart';
 import 'package:flutter_basic/stateful_group_page.dart';
 import 'package:flutter_basic/water_mark.dart';
-import 'package:flutter_basic/webview_demo.dart';
 import 'package:flutter_basic/demoes/animated_builder_demo.dart';
 import 'package:flutter_basic/demoes/animated_widget_Demo.dart';
 import 'package:flutter_basic/widgets/align_widget.dart';
@@ -37,14 +37,17 @@ import 'package:flutter_basic/widgets/scaffold_drawer_widget.dart';
 import 'package:flutter_basic/widgets/text_widget.dart';
 import 'package:flutter_basic/widgets/text_field_widget.dart';
 import 'package:flutter_basic/widgets/top_navigation.dart';
+import 'package:flutter_basic/widgets/widget_lifecycle.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
 import 'case/webview-js/webview_js_interaction.dart';
 import 'demoes/animation_demo_one.dart';
 import 'demoes/http_future_demo.dart';
+import 'demoes/inheritedwidget/father_widget.dart';
 import 'demoes/list_view_demo.dart';
 import 'demoes/shared_preferences_demo.dart';
+import 'demoes/webview_demo.dart';
 import 'layout_widget.dart';
 
 void main() => runApp(MyApp());
@@ -155,6 +158,9 @@ class _MyAppState extends State<MyApp> {
             MainAxisAlignmentWidget(),
         'cross_axis_alignment_widget': (BuildContext context) =>
             CrossAxisAlignmentWidget(),
+        'global_key_demo':(BuildContext context) => GlobalKeyDemo(),
+        'widget_lifecycle':(BuildContext context) => WidgetLifecycle(),
+        'inherited_widget_demo':(BuildContext context) => FatherWidget(),
       },
     );
   }
@@ -241,6 +247,9 @@ class _RouteNavigatorState extends State<RouteNavigator> {
             'main_axis_alignment_widget'),
         _item('cross_axis_alignment_widget', CrossAxisAlignmentWidget(),
             'cross_axis_alignment_widget'),
+        _item('global_key_demo', GlobalKeyDemo(), 'global_key_demo'),
+        _item('widget_lifecycle', WidgetLifecycle(), 'widget_lifecycle'),
+        _item('inherited_widget', FatherWidget(), 'inherited_widget'),
       ],
     );
   }

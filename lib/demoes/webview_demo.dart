@@ -23,7 +23,8 @@ class _WebViewDemoState extends State<WebViewDemo> {
         children: <Widget>[
           WebView(
             //地址
-            initialUrl: "http://192.168.0.117:8081/flutter",
+            initialUrl: "https://www.baidu.com",
+//            initialUrl: "http://192.168.0.117:8081/flutter",
             //JS执行模式 默认是不调用
             javascriptMode: JavascriptMode.unrestricted,
             navigationDelegate: (NavigationRequest request) {
