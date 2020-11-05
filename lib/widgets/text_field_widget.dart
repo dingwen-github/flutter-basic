@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 ///Flutter基础-TextFiled
 ///一个文本框默认情况下 可编辑 （允许输入文本的情况）获取焦点（正在输入文本）下，会有默认的一个下划线，这个下划线的颜色是获取的MaterialApp 组件中 them 配置的 textTheme 主题中的样式
+///设置内容并保持光标(cursor)在末尾
 class TextFieldWidget extends StatefulWidget {
   @override
   _TextFieldWidgetState createState() => _TextFieldWidgetState();
@@ -14,7 +15,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   //输入框是否可编辑
   bool isEnable = true;
-
+  //输入框控制
+  TextEditingController _opinion;
   @override
   void initState() {
     ///添加获取焦点和失去焦点的监听
@@ -31,6 +33,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       //获取输入框焦点
       FocusScope.of(context).requestFocus(_focusNode);
     });
+
+     _opinion = TextEditingController();
     super.initState();
   }
 
@@ -158,6 +162,13 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             textAlign: TextAlign.start,
             //文字方向 right to left  or left to right
             textDirection: TextDirection.ltr,
+            controller: TextEditingController.fromValue(TextEditingValue(
+              // 设置内容
+                text: this._opinion.text,
+                // 保持光标在最后
+                selection: TextSelection.fromPosition(TextPosition(
+                    affinity: TextAffinity.downstream,
+                    offset: _opinion.text.length)))),
           ),
           TextField(),
           Expanded(
