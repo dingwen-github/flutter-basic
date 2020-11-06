@@ -38,7 +38,6 @@ import 'package:flutter_basic/widgets/text_widget.dart';
 import 'package:flutter_basic/widgets/text_field_widget.dart';
 import 'package:flutter_basic/widgets/top_navigation.dart';
 import 'package:flutter_basic/widgets/widget_lifecycle.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
 import 'case/webview-js/webview_js_interaction.dart';
