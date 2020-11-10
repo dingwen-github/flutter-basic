@@ -27,6 +27,7 @@ import 'package:flutter_basic/widgets/list_tile_widget.dart';
 import 'package:flutter_basic/widgets/list_view_widget.dart';
 import 'package:flutter_basic/widgets/main_axis_alignment_widget.dart';
 import 'package:flutter_basic/widgets/material_app_widget.dart';
+import 'package:flutter_basic/widgets/offstage_widget.dart';
 import 'package:flutter_basic/widgets/photo_hero.dart';
 import 'package:flutter_basic/widgets/physical_model_widget.dart';
 import 'package:flutter_basic/widgets/radial_hero.dart';
@@ -48,6 +49,7 @@ import 'demoes/list_view_demo.dart';
 import 'demoes/shared_preferences_demo.dart';
 import 'demoes/webview_demo.dart';
 import 'layout_widget.dart';
+import 'widgets/scroll_bar_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -160,6 +162,8 @@ class _MyAppState extends State<MyApp> {
         'global_key_demo':(BuildContext context) => GlobalKeyDemo(),
         'widget_lifecycle':(BuildContext context) => WidgetLifecycle(),
         'inherited_widget_demo':(BuildContext context) => FatherWidget(),
+        'scroll_bar_widget':(BuildContext context) => ScrollBarWidget(),
+        'offstage_widget':(BuildContext context) => OffstageWidget(),
       },
     );
   }
@@ -249,6 +253,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('global_key_demo', GlobalKeyDemo(), 'global_key_demo'),
         _item('widget_lifecycle', WidgetLifecycle(), 'widget_lifecycle'),
         _item('inherited_widget', FatherWidget(), 'inherited_widget'),
+        _item('scroll_bar_widget', ScrollBarWidget(), 'scroll_bar_widget'),
+        _item('offstage_widget', OffstageWidget(), 'offstage_widget'),
       ],
     );
   }
