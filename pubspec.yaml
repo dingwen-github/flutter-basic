@@ -50,6 +50,7 @@ dev_dependencies:
     sdk: flutter
   #模拟对象依赖
   mockito: 4.1.1
+  gzx_dropdown_menu : ^2.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
