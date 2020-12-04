@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
+import 'package:flutter_basic/case/menu/menu_test.dart';
+import 'package:flutter_basic/case/paginated-data_table/table_test.dart';
 import 'package:flutter_basic/demoes/globalkey/global_key_demo_.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/demoes/pull_drop_demo.dart';
@@ -164,6 +166,8 @@ class _MyAppState extends State<MyApp> {
         'inherited_widget_demo':(BuildContext context) => FatherWidget(),
         'scroll_bar_widget':(BuildContext context) => ScrollBarWidget(),
         'offstage_widget':(BuildContext context) => OffstageWidget(),
+        'menu_case':(BuildContext context) => MenuTest(),
+        'table_case':(BuildContext context) => TableTest(),
       },
     );
   }
@@ -255,6 +259,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('inherited_widget', FatherWidget(), 'inherited_widget'),
         _item('scroll_bar_widget', ScrollBarWidget(), 'scroll_bar_widget'),
         _item('offstage_widget', OffstageWidget(), 'offstage_widget'),
+        _item('menu_case', MenuTest(), 'menu_case'),
+        _item('table_case', TableTest(), 'table_case'),
       ],
     );
   }

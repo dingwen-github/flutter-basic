@@ -17,7 +17,7 @@ class GZXDropDownMenuPage extends StatefulWidget {
 }
 
 class _GZXDropDownMenuPageState extends State<GZXDropDownMenuPage> {
-  List<String> _dropDownHeaderItemStrings = ['所有任务', '所有业务', '所有时间', '其他查询'];
+  List<String> _dropDownHeaderItemStrings = ['个人任务', '所有业务', '所有时间', '其他查询'];
   List<ConditionQuery> _businessConditions = [];
   List<ConditionQuery> _timeLimitConditions = [];
   List<ConditionQuery> _taskConditions = [];
@@ -40,7 +40,6 @@ class _GZXDropDownMenuPageState extends State<GZXDropDownMenuPage> {
   void initState() {
     super.initState();
     _taskConditions.addAll([
-      ConditionQuery(name: '全部任务', isSelected: true),
       ConditionQuery(name: '个人任务', isSelected: false, object: 'my'),
       ConditionQuery(name: '组任务', isSelected: false, object: 'group'),
       ConditionQuery(name: '已处理任务', isSelected: false, object: 'completed'),
