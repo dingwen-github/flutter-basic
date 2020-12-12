@@ -1,0 +1,4 @@
+enum TableType{
+  business,
+  department
+}
