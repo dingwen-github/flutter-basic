@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
+import 'package:flutter_basic/case/event-bus/first_page.dart';
+import 'package:flutter_basic/case/inherited-widget/inherited_widget_test_route.dart';
+import 'package:flutter_basic/case/key/key_case.dart';
 import 'package:flutter_basic/case/menu/menu_test.dart';
+import 'package:flutter_basic/case/notification/notification_route.dart';
 import 'package:flutter_basic/case/paginated-data_table/table_test.dart';
+import 'package:flutter_basic/case/provider/provider_route.dart';
 import 'package:flutter_basic/demoes/globalkey/global_key_demo_.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/demoes/pull_drop_demo.dart';
@@ -16,15 +21,22 @@ import 'package:flutter_basic/water_mark.dart';
 import 'package:flutter_basic/demoes/animated_builder_demo.dart';
 import 'package:flutter_basic/demoes/animated_widget_Demo.dart';
 import 'package:flutter_basic/widgets/align_widget.dart';
+import 'package:flutter_basic/widgets/animated_container_widget.dart';
+import 'package:flutter_basic/widgets/aspect_ratio_widget.dart';
+import 'package:flutter_basic/widgets/box_decoration_widget.dart';
 import 'package:flutter_basic/widgets/box_fix_widget.dart';
 import 'package:flutter_basic/widgets/button_widget.dart';
 import 'package:flutter_basic/widgets/checkbox_list_tile_widget.dart';
+import 'package:flutter_basic/widgets/constrained_box_widget.dart';
 import 'package:flutter_basic/widgets/container_widget.dart';
 import 'package:flutter_basic/widgets/cross_axis_alignment_widget.dart';
 import 'package:flutter_basic/widgets/custom_painter_widget.dart';
+import 'package:flutter_basic/widgets/draggable_widget.dart';
 import 'package:flutter_basic/widgets/expansion_tile_widget.dart';
+import 'package:flutter_basic/widgets/fractionally_sized_box_widget.dart';
 import 'package:flutter_basic/widgets/grid_view_widget.dart';
 import 'package:flutter_basic/widgets/image_widget.dart';
+import 'package:flutter_basic/widgets/limited_box_widget.dart';
 import 'package:flutter_basic/widgets/list_tile_widget.dart';
 import 'package:flutter_basic/widgets/list_view_widget.dart';
 import 'package:flutter_basic/widgets/main_axis_alignment_widget.dart';
@@ -37,9 +49,11 @@ import 'package:flutter_basic/widgets/scaffold_appbar_widget.dart';
 import 'package:flutter_basic/widgets/scaffold_bottom_app_bar.dart';
 import 'package:flutter_basic/widgets/scaffold_bottom_navigation_bar_widget.dart';
 import 'package:flutter_basic/widgets/scaffold_drawer_widget.dart';
+import 'package:flutter_basic/widgets/size_box_widget.dart';
 import 'package:flutter_basic/widgets/text_widget.dart';
 import 'package:flutter_basic/widgets/text_field_widget.dart';
 import 'package:flutter_basic/widgets/top_navigation.dart';
+import 'package:flutter_basic/widgets/unconstrained_box_widget.dart';
 import 'package:flutter_basic/widgets/widget_lifecycle.dart';
 
 import 'case/tabbar-bottomnavigationbar/tab_bootom_nv_page.dart';
@@ -52,7 +66,8 @@ import 'demoes/shared_preferences_demo.dart';
 import 'demoes/webview_demo.dart';
 import 'layout_widget.dart';
 import 'widgets/scroll_bar_widget.dart';
-
+import 'package:logger/logger.dart';
+import 'package:logger_flutter/logger_flutter.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -60,9 +75,9 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
+
 class _MyAppState extends State<MyApp> {
   Brightness _brightness = Brightness.light;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -78,26 +93,29 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Demo'),
         ),
-        body: Column(
-          children: <Widget>[
-            RaisedButton(
-              onPressed: () {
-                setState(() {
-                  if (_brightness == Brightness.light) {
-                    _brightness = Brightness.dark;
-                  } else {
-                    _brightness = Brightness.light;
-                  }
-                });
-              },
-              //局部字体设置
-              child: Text(
-                '切换主题dingwen',
-                style: TextStyle(fontFamily: 'Lobster'),
+        body: LogConsoleOnShake(
+          dark: true,
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_brightness == Brightness.light) {
+                      _brightness = Brightness.dark;
+                    } else {
+                      _brightness = Brightness.light;
+                    }
+                  });
+                },
+                //局部字体设置
+                child: Text(
+                  '切换主题dingwen',
+                  style: TextStyle(fontFamily: 'Lobster'),
+                ),
               ),
-            ),
-            Expanded(child: RouteNavigator()),
-          ],
+              Expanded(child: RouteNavigator()),
+            ],
+          ),
         ),
       ),
       //配置路由
@@ -168,12 +186,27 @@ class _MyAppState extends State<MyApp> {
         'offstage_widget':(BuildContext context) => OffstageWidget(),
         'menu_case':(BuildContext context) => MenuTest(),
         'table_case':(BuildContext context) => TableTest(),
+        'key_case':(BuildContext context) => KeyCase(),
+        'notification_route':(BuildContext context) => NotificationRoute(),
+        'inherited_widget_test_route':(BuildContext context) => InheritedWidgetTestRoute(),
+        'first_page':(BuildContext context) => FirstPage(),
+        'provider_route':(BuildContext context) => ProviderRoute(),
+        'draggable_widget':(BuildContext context) => DraggableWidget(),
+        'box_decoration_widget':(BuildContext context) => BoxDecorationWidget(),
+        'constrained_box_widget':(BuildContext context) => ConstrainedBoxWidget(),
+        'unconstrained_box_widget':(BuildContext context) => UnconstrainedBoxWidget(),
+        'size_box_widget':(BuildContext context) => SizeBoxWidget(),
+        'aspect_ratio_widget':(BuildContext context) => AspectRatioWidget(),
+        'fractionally_sized_box_widget':(BuildContext context) => FractionallySizedBoxWidget(),
+        'limited_box_widget':(BuildContext context) => LimitedBoxWidget(),
+        'animated_container_widget':(BuildContext context) => AnimatedContainerWidget(),
       },
     );
   }
 }
 
 class RouteNavigator extends StatefulWidget {
+  
   @override
   _RouteNavigatorState createState() => _RouteNavigatorState();
 }
@@ -181,6 +214,26 @@ class RouteNavigator extends StatefulWidget {
 class _RouteNavigatorState extends State<RouteNavigator> {
   bool byName = false;
 
+var logger = Logger(
+  printer: PrettyPrinter(),
+);
+
+var loggerNoStack = Logger(
+  printer: PrettyPrinter(methodCount: 0),
+);
+void log() {
+  logger.d("Log message with 2 methods");
+
+  loggerNoStack.i("Info message");
+
+  loggerNoStack.w("Just a warning!");
+
+  logger.e("Error! Something bad happened", "Test Error");
+
+  loggerNoStack.v({"key": 5, "value": "something"});
+
+  Future.delayed(Duration(seconds: 5), log);
+}
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -261,6 +314,21 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('offstage_widget', OffstageWidget(), 'offstage_widget'),
         _item('menu_case', MenuTest(), 'menu_case'),
         _item('table_case', TableTest(), 'table_case'),
+        _item('key_case', KeyCase(), 'local_key_case'),
+        _item('inherited_widget_test_route', InheritedWidgetTestRoute(), 'inherited_widget_test_route'),
+        _item('notification_route', NotificationRoute(), 'notification_route'),
+        _item('first_page', FirstPage(), 'first_page'),
+        _item('provider_route', ProviderRoute(), 'provider_route'),
+        _item('draggable_widget', DraggableWidget(), 'draggable_widget'),
+        _item('box_decoration_widget', BoxDecorationWidget(), 'box_decoration_widget'),
+        _item('constrained_box_widget', ConstrainedBoxWidget(), 'constrained_box_widget'),
+        _item('unconstrained_box_widget', UnconstrainedBoxWidget(), 'unconstrained_box_widget'),
+        _item('size_box_widget', SizeBoxWidget(), 'size_box_widget'),
+        _item('aspect_ratio_widget', AspectRatioWidget(), 'aspect_radio_widget'),
+        _item('fractionally_sized_box_widget', FractionallySizedBoxWidget(), 'fractionally_sized_box_widget'),
+        _item('limited_box_widget', LimitedBoxWidget(), 'limited_box_widget'),
+        _item('animated_container_widget', AnimatedContainerWidget(), 'animated_container_widget'),
+
       ],
     );
   }
@@ -269,7 +337,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
     return Container(
       child: RaisedButton(
         onPressed: () {
-          if (byName) {
+          log();
+         if (byName) {
             Navigator.pushNamed(context, routeName);
           } else {
             Navigator.push(

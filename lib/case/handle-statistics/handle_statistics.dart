@@ -1,12 +1,12 @@
-import 'package:approval/views/query/handle-statistics/constant/table_data_init.dart';
-import 'package:approval/views/query/handle-statistics/constant/table_type.dart';
-import 'package:approval/views/query/handle-statistics/util/weekday_util.dart';
-import 'package:approval/views/query/handle-statistics/widget/statistics_table.dart';
-import 'package:approval/views/query/handle-statistics/widget/whole_statistics_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter_basic/case/handle-statistics/constant/table_data_init.dart';
+import 'package:flutter_basic/case/handle-statistics/constant/table_type.dart';
+import 'package:flutter_basic/case/handle-statistics/util/weekday_util.dart';
+import 'package:flutter_basic/case/handle-statistics/widget/statistics_table.dart';
+import 'package:flutter_basic/case/handle-statistics/widget/whole_statistics_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_my_picker/flutter_my_picker.dart';
 import 'package:intl/intl.dart';

@@ -57,6 +57,11 @@ dev_dependencies:
   flutter_my_picker: ^1.0.3
   #主要用于时间日期转换
   intl: ^0.16.1
+  # 事件总线
+  event_bus: ^1.1.1
+  # 日志
+  logger: ^0.7.0
+  logger_flutter: ^0.7.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
