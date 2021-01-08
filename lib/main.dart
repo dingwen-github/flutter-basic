@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
+import 'package:flutter_basic/case/curved-navigation-bar/CurvedNavigationBarCase.dart';
 import 'package:flutter_basic/case/event-bus/first_page.dart';
 import 'package:flutter_basic/case/inherited-widget/inherited_widget_test_route.dart';
 import 'package:flutter_basic/case/key/key_case.dart';
+import 'package:flutter_basic/case/liquid-swipe/liquid_swipe_case.dart';
 import 'package:flutter_basic/case/menu/menu_test.dart';
 import 'package:flutter_basic/case/notification/notification_route.dart';
 import 'package:flutter_basic/case/paginated-data_table/table_test.dart';
@@ -200,6 +202,8 @@ class _MyAppState extends State<MyApp> {
         'fractionally_sized_box_widget':(BuildContext context) => FractionallySizedBoxWidget(),
         'limited_box_widget':(BuildContext context) => LimitedBoxWidget(),
         'animated_container_widget':(BuildContext context) => AnimatedContainerWidget(),
+        'liquid_swipe_case':(BuildContext context) => LiquidSwipeCase(),
+        'curved_navigation_bar_case':(BuildContext context) => CurvedNavigationBarCase(),
       },
     );
   }
@@ -328,6 +332,8 @@ void log() {
         _item('fractionally_sized_box_widget', FractionallySizedBoxWidget(), 'fractionally_sized_box_widget'),
         _item('limited_box_widget', LimitedBoxWidget(), 'limited_box_widget'),
         _item('animated_container_widget', AnimatedContainerWidget(), 'animated_container_widget'),
+        _item('liquid_swipe_case', LiquidSwipeCase(), 'liquid_swipe_case'),
+        _item('curved_navigation_bar_case', CurvedNavigationBarCase(), 'curved_navigation_bar_case'),
 
       ],
     );

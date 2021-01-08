@@ -62,6 +62,10 @@ dev_dependencies:
   # 日志
   logger: ^0.7.0
   logger_flutter: ^0.7.1
+  # 水滴引导页
+  liquid_swipe: ^1.5.0
+  # navigation_bar
+  curved_navigation_bar: ^0.3.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -76,9 +80,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/wechat_header_img.jpg
-    - images/admin.jpg
-    - images/mac.jpeg
+    - images/
   fonts:
     - family: Lobster
       fonts:

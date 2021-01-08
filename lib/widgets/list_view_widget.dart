@@ -46,6 +46,7 @@ class _ListViewWidgetState extends State<ListViewWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text('基础组件-listView'),
         leading: BackButton(),

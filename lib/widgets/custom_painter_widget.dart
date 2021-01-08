@@ -43,6 +43,7 @@ class _CustomPainterWidgetState extends State<CustomPainterWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text('CustomPainter'),
         leading: BackButton(),
