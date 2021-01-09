@@ -17,10 +17,9 @@ class CurvedNavigationBarCase extends StatefulWidget {
 }
 
 class _CurvedNavigationBarCaseState extends State<CurvedNavigationBarCase> {
-  int _index = 0;
-  GlobalKey _bottomNavigationKey = GlobalKey();
+    int _index = 0;
   List<Widget> _pageList = [];
-  List<IconData> _iconDataList = [];
+  Map<String, IconData> _iconMap = {};
   double _size = 30;
   MaterialColor _inactiveColor = Colors.grey;
   MaterialColor _activeColor = Colors.deepOrange;
@@ -36,21 +35,20 @@ class _CurvedNavigationBarCaseState extends State<CurvedNavigationBarCase> {
       LimitedBoxWidget(),
       ListViewWidget(),
     ]);
-    _iconDataList.addAll([
-      Icons.home,
-      Icons.widgets,
-      Icons.turned_in,
-      Icons.toys,
-      Icons.person,
-    ]);
-   _pageController = PageController(initialPage: _index,keepPage: true);///缓存页面
+    _iconMap.putIfAbsent('首页', () => Icons.home);
+    _iconMap.putIfAbsent('widgets', () => Icons.widgets);
+    _iconMap.putIfAbsent('案例', () => Icons.turned_in);
+    _iconMap.putIfAbsent('模块', () => Icons.toys);
+    _iconMap.putIfAbsent('我的', () => Icons.person);
+    _pageController = PageController(initialPage: _index, keepPage: true);
+
+    ///缓存页面
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
           index: 0,
           height: 60.0,
           items: _buildIconList(),
@@ -62,34 +60,45 @@ class _CurvedNavigationBarCaseState extends State<CurvedNavigationBarCase> {
           onTap: (index) {
             setState(() {
               _index = index;
-              _pageController.animateToPage(index, duration: Duration(milliseconds: 600), curve: Curves.easeInOut);
+              _pageController.animateToPage(index,
+                  duration: Duration(milliseconds: 600),
+                  curve: Curves.easeInOut);
             });
           },
           letIndexChange: (index) => true,
         ),
         body: PageView.builder(
-            physics: NeverScrollableScrollPhysics(), //禁止滑动
+            physics: NeverScrollableScrollPhysics(),
+            //禁止滑动
             controller: _pageController,
             itemCount: _pageList.length,
-            onPageChanged: (index) => setState((){
-              _bottomNavigationKey.currentState.build(context);
-                _index = index;
-            }),
-            itemBuilder: (context,index)=> _pageList[index]));
+            onPageChanged: (index) => setState(() {
+                  _index = index;}),
+            itemBuilder: (context, index) => _pageList[index]));
   }
 
+  ///构建图标
   List<Widget> _buildIconList() {
     List<Widget> _iconList = [];
-    for (int i = 0; i < _iconDataList.length; i++) {
+    //Map 下标
+    int index = 0;
+    _iconMap.forEach((title, iconData) {
       _iconList.add(Tooltip(
-        message: 'test',
-        child: Column(children: [
-          Icon(_iconDataList[i],
-              size: _size, color: _index == i ? _activeColor : _inactiveColor),
-          Text('首页',style: TextStyle(fontSize: 8,color:  _index == i ? _activeColor : _inactiveColor),)
-        ],),
+        message: '$title',
+        child: Column(
+          children: [
+            Icon(iconData,
+                size: _size,
+                color: _index == index ? _activeColor : _inactiveColor),
+            Text('$title',
+                style: TextStyle(
+                    fontSize: 8,
+                    color: _index == index ? _activeColor : _inactiveColor)),
+          ],
+        ),
       ));
-    }
+      index++;
+    });
     return _iconList;
   }
 }

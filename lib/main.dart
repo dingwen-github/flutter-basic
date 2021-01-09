@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/app_lifecycle.dart';
+import 'package:flutter_basic/case/bot-toast/bot_toast_case.dart';
 import 'package:flutter_basic/case/curved-navigation-bar/CurvedNavigationBarCase.dart';
 import 'package:flutter_basic/case/event-bus/first_page.dart';
 import 'package:flutter_basic/case/inherited-widget/inherited_widget_test_route.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_basic/case/menu/menu_test.dart';
 import 'package:flutter_basic/case/notification/notification_route.dart';
 import 'package:flutter_basic/case/paginated-data_table/table_test.dart';
 import 'package:flutter_basic/case/provider/provider_route.dart';
+import 'package:flutter_basic/case/sliding-up-panel/sliding_up_panel_case.dart';
 import 'package:flutter_basic/demoes/globalkey/global_key_demo_.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/demoes/pull_drop_demo.dart';
@@ -70,6 +72,7 @@ import 'layout_widget.dart';
 import 'widgets/scroll_bar_widget.dart';
 import 'package:logger/logger.dart';
 import 'package:logger_flutter/logger_flutter.dart';
+import 'package:bot_toast/bot_toast.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -84,6 +87,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      navigatorObservers: [BotToastNavigatorObserver()],
+      builder: BotToastInit(),
       theme: ThemeData(
         //设置全局字体
 //        fontFamily: 'Lobster',
@@ -204,6 +209,8 @@ class _MyAppState extends State<MyApp> {
         'animated_container_widget':(BuildContext context) => AnimatedContainerWidget(),
         'liquid_swipe_case':(BuildContext context) => LiquidSwipeCase(),
         'curved_navigation_bar_case':(BuildContext context) => CurvedNavigationBarCase(),
+        'bot_toast_case':(BuildContext context) => BotToastCaseCase(),
+        'sliding_up_panel_case':(BuildContext context) => SlidingUpPanelCase(),
       },
     );
   }
@@ -334,6 +341,8 @@ void log() {
         _item('animated_container_widget', AnimatedContainerWidget(), 'animated_container_widget'),
         _item('liquid_swipe_case', LiquidSwipeCase(), 'liquid_swipe_case'),
         _item('curved_navigation_bar_case', CurvedNavigationBarCase(), 'curved_navigation_bar_case'),
+        _item('sliding_up_panel_case', SlidingUpPanelCase(), 'sliding_up_panel_case'),
+        _item('bot_toast_case', BotToastCaseCase(), 'bot_toast_case'),
 
       ],
     );
