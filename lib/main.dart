@@ -26,6 +26,7 @@ import 'package:flutter_basic/demoes/animated_builder_demo.dart';
 import 'package:flutter_basic/demoes/animated_widget_Demo.dart';
 import 'package:flutter_basic/widgets/align_widget.dart';
 import 'package:flutter_basic/widgets/animated_container_widget.dart';
+import 'package:flutter_basic/widgets/animated_switcher_widget.dart';
 import 'package:flutter_basic/widgets/aspect_ratio_widget.dart';
 import 'package:flutter_basic/widgets/box_decoration_widget.dart';
 import 'package:flutter_basic/widgets/box_fix_widget.dart';
@@ -211,6 +212,7 @@ class _MyAppState extends State<MyApp> {
         'curved_navigation_bar_case':(BuildContext context) => CurvedNavigationBarCase(),
         'bot_toast_case':(BuildContext context) => BotToastCaseCase(),
         'sliding_up_panel_case':(BuildContext context) => SlidingUpPanelCase(),
+        'animated_switcher_widget':(BuildContext context) => AnimatedSwitcherWidget(),
       },
     );
   }
@@ -343,6 +345,7 @@ void log() {
         _item('curved_navigation_bar_case', CurvedNavigationBarCase(), 'curved_navigation_bar_case'),
         _item('sliding_up_panel_case', SlidingUpPanelCase(), 'sliding_up_panel_case'),
         _item('bot_toast_case', BotToastCaseCase(), 'bot_toast_case'),
+        _item('animated_switcher_widget', AnimatedSwitcherWidget(), 'animated_switcher_widget'),
 
       ],
     );
