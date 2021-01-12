@@ -14,6 +14,7 @@ import 'package:flutter_basic/case/sliding-up-panel/sliding_up_panel_case.dart';
 import 'package:flutter_basic/demoes/globalkey/global_key_demo_.dart';
 import 'package:flutter_basic/demoes/http_future_builder_demo.dart';
 import 'package:flutter_basic/demoes/pull_drop_demo.dart';
+import 'package:flutter_basic/demoes/show_about_dialog_demo.dart';
 import 'package:flutter_basic/flutter_widget_lifecycle.dart';
 import 'package:flutter_basic/gesture_page.dart';
 import 'package:flutter_basic/launch_page.dart';
@@ -213,6 +214,7 @@ class _MyAppState extends State<MyApp> {
         'bot_toast_case':(BuildContext context) => BotToastCaseCase(),
         'sliding_up_panel_case':(BuildContext context) => SlidingUpPanelCase(),
         'animated_switcher_widget':(BuildContext context) => AnimatedSwitcherWidget(),
+        'show_about_dialog_demo':(BuildContext context) => ShowAboutDialogDemo(),
       },
     );
   }
@@ -346,6 +348,7 @@ void log() {
         _item('sliding_up_panel_case', SlidingUpPanelCase(), 'sliding_up_panel_case'),
         _item('bot_toast_case', BotToastCaseCase(), 'bot_toast_case'),
         _item('animated_switcher_widget', AnimatedSwitcherWidget(), 'animated_switcher_widget'),
+        _item('show_about_dialog_demo', ShowAboutDialogDemo(), 'show_about_dialog_demo'),
 
       ],
     );
